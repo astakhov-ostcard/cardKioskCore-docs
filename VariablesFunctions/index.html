@@ -112,28 +112,16 @@
 <pre class="codehilite"><code class="language-json">&quot;add:varName1#varName2&amp;&amp;varName3&quot;
 </code></pre>
 
-<p>Что делает команда:
-1. Пытается получить значения переменных varName2 и varName3. Если такие переменные не найдены в SessionData и в PersistentData, то varName2 и varName3 интерпретируются как простой текст.</p>
-<ol>
-<li>
-<p>Соединяет полученные значения varName2 и varName3. 
+<p>Что делает команда:<br />
+1. Пытается получить значения переменных varName2 и varName3. Если такие переменные не найдены в SessionData и в PersistentData, то varName2 и varName3 интерпретируются как простой текст.<br />
+2. Соединяет полученные значения varName2 и varName3. 
     Пример: varName1="AAA" varName2="BBB" Результат="AAABBB"
-    Если таких переменных нет, то результат="varName2varName3"</p>
-</li>
-<li>
-<p>Помещает результат соединения в varName1</p>
-</li>
-</ol>
-<p>Где можно использовать:
-1. "add:varName1#varName2&amp;&amp;varName3"</p>
-<ol>
-<li>
-<p>"fill:varName1#varName2&amp;&amp;varName3"</p>
-</li>
-<li>
-<p>"persistentFill:varName1#varName2&amp;&amp;varName3"</p>
-</li>
-</ol>
+    Если таких переменных нет, то результат="varName2varName3"<br />
+3. Помещает результат соединения в varName1  </p>
+<p>Где можно использовать:<br />
+1. "add:varName1#varName2&amp;&amp;varName3"<br />
+2. "fill:varName1#varName2&amp;&amp;varName3"<br />
+3. "persistentFill:varName1#varName2&amp;&amp;varName3"  </p>
 <p>Соединять можно множество строк. Ограничения по количеству соединений нет.</p>
 <pre class="codehilite"><code class="language-json">&quot;add:varName1#varName2&amp;&amp;-&amp;&amp;varName3&amp;&amp; &amp;&amp;varName4&amp;&amp;someText&quot;
 </code></pre>
@@ -142,63 +130,33 @@
 <pre class="codehilite"><code class="language-json">&quot;add:varName1#varName2.Split(AA,0)&quot;
 </code></pre>
 
-<p>Что делает команда:
-1. Пытается получить значение varName2. Если такая переменная не найдена в SessionData и в PersistentData, то интерпретируется как простой текст "varName2"</p>
-<ol>
-<li>
-<p>Разделяет полученную строку по символу или строке. В данном случае "AA"
-    Пример: varName2="start_AA_end" разделитель="AA" Результат - массив строк ["start_", "_end"]</p>
-</li>
-<li>
-<p>Помещает выбранную ячейку массива (в данном случае ячейка 0 = "start_") в переменную varName1</p>
-</li>
-</ol>
-<p>Где можно использовать:
-1. "add:varName1#varName2.Split(AA,0)"</p>
-<ol>
-<li>
-<p>"fill:varName1#varName2.Split(AA,0)"</p>
-</li>
-<li>
-<p>"persistentFill:varName1#varName2.Split(AA,0)"</p>
-</li>
-</ol>
+<p>Что делает команда:<br />
+1. Пытается получить значение varName2. Если такая переменная не найдена в SessionData и в PersistentData, то интерпретируется как простой текст "varName2"<br />
+2. Разделяет полученную строку по символу или строке. В данном случае "AA"
+    Пример: varName2="start_AA_end" разделитель="AA" Результат - массив строк ["start_", "<em>end"]<br />
+3. Помещает выбранную ячейку массива (в данном случае ячейка 0 = "start</em>") в переменную varName1  </p>
+<p>Где можно использовать:<br />
+1. "add:varName1#varName2.Split(AA,0)"<br />
+2. "fill:varName1#varName2.Split(AA,0)"<br />
+3. "persistentFill:varName1#varName2.Split(AA,0)"  </p>
 <h2 id="_4">Порядок выполнения специальных функций<a class="headerlink" href="#_4" title="Permanent link">&para;</a></h2>
 <p>Все перечисленные выше функции можно использовать совместно в рамках одной команды.
-Они выполняются в определенной последовательности:
-1. Выполняется <a href="#конкатенация-соединение-строк">конкатенация</a>, если есть</p>
-<ol>
-<li>
-<p>Выполняется <a href="#разделение-строки-по-символу">разделение</a>, если есть</p>
-</li>
-<li>
-<p>Подстановка оставшихся значений переменных</p>
-</li>
-</ol>
+Они выполняются в определенной последовательности:<br />
+1. Выполняется <a href="#конкатенация-соединение-строк">конкатенация</a>, если есть<br />
+2. Выполняется <a href="#разделение-строки-по-символу">разделение</a>, если есть<br />
+3. Подстановка оставшихся значений переменных  </p>
 <p>Пример:</p>
 <pre class="codehilite"><code class="language-json">&quot;add:varName1#session:varName-&amp;&amp;varName2.Split(-,0)&quot;
 </code></pre>
 
-<p>Что делает команда:
-1. Пытается получить значение varName2. Если такая переменная не найдена в SessionData и в PersistentData, то интерпретируется как простой текст "varName2"</p>
-<ol>
-<li>
-<p>Соединяет "session:varName-" и значение переменной varName2
-   Пример: varName2="Test-Foo" результат="session:varNameTest-Foo"</p>
-</li>
-<li>
-<p>Разделяет строку по разделителю "-". При исходной строке "session:varNameTest-Foo" получается массив строк ["session:varNameTest", "Foo"]</p>
-</li>
-<li>
-<p>Берет 0 ячейку получившегося массива - "session:varNameTest"</p>
-</li>
-<li>
-<p>Пытается получить значение session:varNameTest. Если такая переменная не найдена в SessionData и в PersistentData, то интерпретируется как простой текст "session:varNameTest"</p>
-</li>
-<li>
-<p>Записывает в переменную varName1 результат из п.5</p>
-</li>
-</ol>
+<p>Что делает команда:<br />
+1. Пытается получить значение varName2. Если такая переменная не найдена в SessionData и в PersistentData, то интерпретируется как простой текст "varName2"<br />
+2. Соединяет "session:varName-" и значение переменной varName2<br />
+   Пример: varName2="Test-Foo" результат="session:varNameTest-Foo"<br />
+3. Разделяет строку по разделителю "-". При исходной строке "session:varNameTest-Foo" получается массив строк ["session:varNameTest", "Foo"]<br />
+4. Берет 0 ячейку получившегося массива - "session:varNameTest"<br />
+5. Пытается получить значение session:varNameTest. Если такая переменная не найдена в SessionData и в PersistentData, то интерпретируется как простой текст "session:varNameTest"<br />
+6. Записывает в переменную varName1 результат из п.5  </p>
 <p>Использование команды Split() до конкатенации на данный момент не рекомендуется и может привести к неожиданным результатам.
 Использование нескольких команд Split() на данный момент не рекомендуется и может привести к неожиданным результатам.</p></div>
             </div>
