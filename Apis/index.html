@@ -85,12 +85,298 @@
     
     <div id="toc-collapse" class="navbar-collapse collapse card bg-body-tertiary">
         <ul class="nav flex-column">
+            
+            <li class="nav-item" data-bs-level="2"><a href="#apis" class="nav-link">Apis</a>
+              <ul class="nav flex-column">
+            <li class="nav-item" data-bs-level="3"><a href="#api" class="nav-link">Параметры API (верхний уровень)</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-bs-level="3"><a href="#authconfig" class="nav-link">Параметры AuthConfig</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-bs-level="3"><a href="#request" class="nav-link">Параметры Request</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-bs-level="3"><a href="#codeoutcomemappings" class="nav-link">CodeOutcomeMappings</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-bs-level="3"><a href="#query-bodytemplate" class="nav-link">Переменные в Query и BodyTemplate</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-bs-level="3"><a href="#pathtemplate" class="nav-link">Путь с переменными (PathTemplate)</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-bs-level="3"><a href="#_1" class="nav-link">Вызов запросов</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+              </ul>
+            </li>
         </ul>
     </div>
 </div></div>
                     <div class="col-md-9" role="main">
 
-</div>
+<h2 id="apis">Apis<a class="headerlink" href="#apis" title="Permanent link">&para;</a></h2>
+<p>Раздел <code>apis</code> описывает HTTP-запросы к внешним или внутренним REST API. Запросы вызываются командой <code>apicall:requestKey</code>.</p>
+<div class="codehilite"><pre><span></span><code><span class="p">{</span>
+<span class="w">  </span><span class="nt">&quot;apis&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
+<span class="w">    </span><span class="p">{</span>
+<span class="w">      </span><span class="nt">&quot;Name&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;BankAPI&quot;</span><span class="p">,</span>
+<span class="w">      </span><span class="nt">&quot;BaseUrl&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;https://api.example.com&quot;</span><span class="p">,</span>
+<span class="w">      </span><span class="nt">&quot;DefaultHeaders&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="nt">&quot;Accept&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;application/json&quot;</span><span class="p">,</span>
+<span class="w">        </span><span class="nt">&quot;Accept-Language&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;ru&quot;</span>
+<span class="w">      </span><span class="p">},</span>
+<span class="w">      </span><span class="nt">&quot;Auth&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="nt">&quot;Type&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;BearerToken&quot;</span><span class="p">,</span>
+<span class="w">        </span><span class="nt">&quot;BearerToken&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;STATIC_BEARER&quot;</span>
+<span class="w">      </span><span class="p">},</span>
+<span class="w">      </span><span class="nt">&quot;Requests&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
+<span class="w">        </span><span class="p">{</span>
+<span class="w">          </span><span class="nt">&quot;Key&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;post_StartProcess&quot;</span><span class="p">,</span>
+<span class="w">          </span><span class="nt">&quot;Summary&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Start Card Print Process&quot;</span><span class="p">,</span>
+<span class="w">          </span><span class="nt">&quot;Method&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;POST&quot;</span><span class="p">,</span>
+<span class="w">          </span><span class="nt">&quot;PathTemplate&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;/api/v1/process/start&quot;</span><span class="p">,</span>
+<span class="w">          </span><span class="nt">&quot;BodyKind&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Json&quot;</span><span class="p">,</span>
+<span class="w">          </span><span class="nt">&quot;BodyTemplate&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">            </span><span class="nt">&quot;clientIin&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;session:clientIDField&quot;</span><span class="p">,</span>
+<span class="w">            </span><span class="nt">&quot;clientPhone&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;session:clientPhoneField&quot;</span>
+<span class="w">          </span><span class="p">},</span>
+<span class="w">          </span><span class="nt">&quot;ExpectedStatusCodes&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="mi">200</span><span class="p">],</span>
+<span class="w">          </span><span class="nt">&quot;DefaultSuccessSaveAs&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;result_post_StartProcess&quot;</span><span class="p">,</span>
+<span class="w">          </span><span class="nt">&quot;CodeOutcomeMappings&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">            </span><span class="nt">&quot;404&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;warning:ClientNotFound&quot;</span>
+<span class="w">          </span><span class="p">}</span>
+<span class="w">        </span><span class="p">}</span>
+<span class="w">      </span><span class="p">]</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="w">  </span><span class="p">]</span>
+<span class="p">}</span>
+</code></pre></div>
+
+<h3 id="api">Параметры API (верхний уровень)<a class="headerlink" href="#api" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>Параметр</th>
+<th>Тип</th>
+<th>Обязательный</th>
+<th>Описание</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>Name</code></td>
+<td>string</td>
+<td>✓</td>
+<td>Уникальное имя API. Используется только для идентификации</td>
+</tr>
+<tr>
+<td><code>Description</code></td>
+<td>string</td>
+<td></td>
+<td>Краткое описание назначения API</td>
+</tr>
+<tr>
+<td><code>Version</code></td>
+<td>string</td>
+<td></td>
+<td>Версия API (например, <code>"1.0.0"</code>)</td>
+</tr>
+<tr>
+<td><code>BaseUrl</code></td>
+<td>string</td>
+<td>✓</td>
+<td>Базовый URL для всех запросов этого API</td>
+</tr>
+<tr>
+<td><code>DefaultHeaders</code></td>
+<td>object</td>
+<td></td>
+<td>HTTP-заголовки, применяемые ко всем запросам этого API</td>
+</tr>
+<tr>
+<td><code>DefaultQuery</code></td>
+<td>object</td>
+<td></td>
+<td>Query-параметры по умолчанию, добавляемые ко всем запросам</td>
+</tr>
+<tr>
+<td><code>Auth</code></td>
+<td>AuthConfig</td>
+<td></td>
+<td>Конфигурация аутентификации</td>
+</tr>
+<tr>
+<td><code>Requests</code></td>
+<td>Request[]</td>
+<td>✓</td>
+<td>Список запросов</td>
+</tr>
+</tbody>
+</table>
+<h3 id="authconfig">Параметры AuthConfig<a class="headerlink" href="#authconfig" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>Параметр</th>
+<th>Тип</th>
+<th>Описание</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>Type</code></td>
+<td>string</td>
+<td>Тип аутентификации. На данный момент поддерживается <code>"BearerToken"</code></td>
+</tr>
+<tr>
+<td><code>BearerToken</code></td>
+<td>string</td>
+<td>Значение токена. Добавляется в заголовок <code>Authorization: Bearer &lt;token&gt;</code></td>
+</tr>
+</tbody>
+</table>
+<h3 id="request">Параметры Request<a class="headerlink" href="#request" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>Параметр</th>
+<th>Тип</th>
+<th>Обязательный</th>
+<th>Описание</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>Key</code></td>
+<td>string</td>
+<td>✓</td>
+<td>Уникальный ключ запроса. Используется в команде <code>apicall:Key</code></td>
+</tr>
+<tr>
+<td><code>Summary</code></td>
+<td>string</td>
+<td></td>
+<td>Краткое описание запроса</td>
+</tr>
+<tr>
+<td><code>Method</code></td>
+<td>string</td>
+<td>✓</td>
+<td>HTTP-метод: <code>"GET"</code>, <code>"POST"</code>, <code>"PUT"</code>, <code>"DELETE"</code> и т.д.</td>
+</tr>
+<tr>
+<td><code>PathTemplate</code></td>
+<td>string</td>
+<td>✓</td>
+<td>Путь запроса. Поддерживает переменные <code>{param}</code>, которые заменяются из <code>Query</code></td>
+</tr>
+<tr>
+<td><code>BodyKind</code></td>
+<td>string</td>
+<td></td>
+<td>Тип тела запроса: <code>"Json"</code> или <code>"None"</code>. Требуется при наличии <code>BodyTemplate</code></td>
+</tr>
+<tr>
+<td><code>Query</code></td>
+<td>object</td>
+<td></td>
+<td>Query-параметры запроса. Значения поддерживают <code>session:</code> и <code>persistent:</code></td>
+</tr>
+<tr>
+<td><code>BodyTemplate</code></td>
+<td>object</td>
+<td></td>
+<td>Тело запроса. Значения поддерживают <code>session:varName</code> и <code>persistent:varName</code> с опциональным <code>\|fallback:defaultValue</code></td>
+</tr>
+<tr>
+<td><code>ExpectedStatusCodes</code></td>
+<td>int[]</td>
+<td></td>
+<td>Список HTTP-кодов, считающихся успешным ответом. Ответы с другими кодами вызывают <code>onFailure</code>. Если не задан — любой 2xx код считается успехом</td>
+</tr>
+<tr>
+<td><code>DefaultSuccessSaveAs</code></td>
+<td>string</td>
+<td></td>
+<td>Ключ сессии (<code>session:key</code>), в который сохраняется тело успешного ответа</td>
+</tr>
+<tr>
+<td><code>CodeOutcomeMappings</code></td>
+<td>object</td>
+<td></td>
+<td>Сопоставление конкретных HTTP-кодов с командами. Переопределяет стандартное поведение для указанных кодов</td>
+</tr>
+<tr>
+<td><code>TimeoutOverride</code></td>
+<td>string</td>
+<td></td>
+<td>Переопределение таймаута запроса в формате <code>"ЧЧ:ММ:СС"</code>. Например: <code>"00:02:00"</code></td>
+</tr>
+</tbody>
+</table>
+<h3 id="codeoutcomemappings">CodeOutcomeMappings<a class="headerlink" href="#codeoutcomemappings" title="Permanent link">&para;</a></h3>
+<p>Позволяет назначить команду или цепочку команд для конкретного HTTP-кода ответа.</p>
+<div class="codehilite"><pre><span></span><code><span class="nt">&quot;CodeOutcomeMappings&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="nt">&quot;404&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;warning:ClientNotFound&quot;</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">&quot;408&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="nt">&quot;name&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;apicall:get_WaitForCardIssuedRetry&quot;</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">&quot;onSuccess&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;screen:win_Finish&quot;</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">&quot;onFailure&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;error:TimeoutError&quot;</span>
+<span class="w">  </span><span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div>
+
+<p>Значение для каждого кода — это команда: строка, объект <code>CommandDefinition</code> или массив команд.</p>
+<h3 id="query-bodytemplate">Переменные в Query и BodyTemplate<a class="headerlink" href="#query-bodytemplate" title="Permanent link">&para;</a></h3>
+<p>Значения в <code>Query</code> и <code>BodyTemplate</code> поддерживают:
+- <code>"session:varName"</code> — значение из сессии
+- <code>"persistent:varName"</code> — значение из персистентного хранилища
+- <code>"session:varName|fallback:defaultValue"</code> — со значением по умолчанию
+- Статические значения: <code>"60"</code>, <code>true</code>, <code>false</code>, числа</p>
+<h3 id="pathtemplate">Путь с переменными (PathTemplate)<a class="headerlink" href="#pathtemplate" title="Permanent link">&para;</a></h3>
+<p>Переменные в пути задаются в фигурных скобках и берутся из <code>Query</code>:</p>
+<div class="codehilite"><pre><span></span><code><span class="p">{</span>
+<span class="w">  </span><span class="nt">&quot;Key&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;get_CheckStatus&quot;</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">&quot;Method&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;GET&quot;</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">&quot;PathTemplate&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;/api/v1/process/{id}/check-status&quot;</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">&quot;Query&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="nt">&quot;id&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;session:processId&quot;</span>
+<span class="w">  </span><span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div>
+
+<h3 id="_1">Вызов запросов<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h3>
+<p>Запросы вызываются командами:</p>
+<div class="codehilite"><pre><span></span><code><span class="s2">&quot;apicall:post_StartProcess&quot;</span>
+</code></pre></div>
+
+<p>Или в объектной форме с обработчиками:</p>
+<div class="codehilite"><pre><span></span><code><span class="p">{</span>
+<span class="w">  </span><span class="nt">&quot;name&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;apicall:post_StartProcess&quot;</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">&quot;onSuccess&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;screen:win_Next&quot;</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">&quot;onFailure&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;error:ServerError&quot;</span>
+<span class="p">}</span>
+</code></pre></div>
+
+<p>Для асинхронного вызова (без блокировки потока UI):</p>
+<div class="codehilite"><pre><span></span><code><span class="p">{</span>
+<span class="w">  </span><span class="nt">&quot;name&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;apicallasync:post_StartProcess&quot;</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">&quot;onSuccess&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;screen:win_Next&quot;</span>
+<span class="p">}</span>
+</code></pre></div>
+
+<p>Результат успешного запроса сохраняется в <code>session:{DefaultSuccessSaveAs}</code>. Из него можно читать значения через точечную нотацию:</p>
+<div class="codehilite"><pre><span></span><code><span class="s2">&quot;session:result_post_StartProcess.data.id&quot;</span>
+</code></pre></div></div>
             </div>
         </div>
 

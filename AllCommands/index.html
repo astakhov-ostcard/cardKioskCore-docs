@@ -8,7 +8,7 @@
         
         <link rel="canonical" href="https://USERNAME.github.io/project-docs/AllCommands/">
         <link rel="shortcut icon" href="../img/favicon.ico">
-        <title>AllCommands - Card Kiosk Core documentation</title>
+        <title>Команды (Commands) - Card Kiosk Core documentation</title>
         <link href="../css/bootstrap.min.css" rel="stylesheet">
         <link href="../css/fontawesome.min.css" rel="stylesheet">
         <link href="../css/brands.min.css" rel="stylesheet">
@@ -85,12 +85,551 @@
     
     <div id="toc-collapse" class="navbar-collapse collapse card bg-body-tertiary">
         <ul class="nav flex-column">
+            
+            <li class="nav-item" data-bs-level="1"><a href="#commands" class="nav-link">Команды (Commands)</a>
+              <ul class="nav flex-column">
+            <li class="nav-item" data-bs-level="2"><a href="#_1" class="nav-link">Навигация</a>
+              <ul class="nav flex-column">
+            <li class="nav-item" data-bs-level="3"><a href="#_2" class="nav-link">Перейти на экран</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-bs-level="3"><a href="#_3" class="nav-link">Вернуться назад</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-bs-level="3"><a href="#_4" class="nav-link">Вернуться на корневой экран</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+              </ul>
+            </li>
+            <li class="nav-item" data-bs-level="2"><a href="#_5" class="nav-link">Сообщения об ошибках и предупреждениях</a>
+              <ul class="nav flex-column">
+            <li class="nav-item" data-bs-level="3"><a href="#_6" class="nav-link">Показать предупреждение</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-bs-level="3"><a href="#_7" class="nav-link">Показать ошибку</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+              </ul>
+            </li>
+            <li class="nav-item" data-bs-level="2"><a href="#_8" class="nav-link">Управление элементами</a>
+              <ul class="nav flex-column">
+            <li class="nav-item" data-bs-level="3"><a href="#_9" class="nav-link">Показать элемент</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-bs-level="3"><a href="#_10" class="nav-link">Скрыть элемент</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-bs-level="3"><a href="#_11" class="nav-link">Переключить видимость элемента</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-bs-level="3"><a href="#_12" class="nav-link">Активировать элемент</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-bs-level="3"><a href="#_13" class="nav-link">Деактивировать элемент</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-bs-level="3"><a href="#_14" class="nav-link">Переключить активацию элемента</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-bs-level="3"><a href="#_15" class="nav-link">Применить стиль текста к элементу</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-bs-level="3"><a href="#_16" class="nav-link">Сбросить стиль текста элемента</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-bs-level="3"><a href="#_17" class="nav-link">Передать фокус на поле ввода</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+              </ul>
+            </li>
+            <li class="nav-item" data-bs-level="2"><a href="#_18" class="nav-link">Работа с переменными</a>
+              <ul class="nav flex-column">
+            <li class="nav-item" data-bs-level="3"><a href="#_19" class="nav-link">Записать значение в сессию</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-bs-level="3"><a href="#_20" class="nav-link">Записать в сессию (только если пусто)</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-bs-level="3"><a href="#_21" class="nav-link">Удалить переменную из сессии</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-bs-level="3"><a href="#persistent" class="nav-link">Записать в persistent (только если пусто)</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-bs-level="3"><a href="#persistent_1" class="nav-link">Удалить переменную из persistent</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-bs-level="3"><a href="#_22" class="nav-link">Скопировать значение в сессию</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-bs-level="3"><a href="#persistent_2" class="nav-link">Скопировать значение в persistent</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+              </ul>
+            </li>
+            <li class="nav-item" data-bs-level="2"><a href="#_23" class="nav-link">Буфер обмена</a>
+              <ul class="nav flex-column">
+            <li class="nav-item" data-bs-level="3"><a href="#_24" class="nav-link">Скопировать текст в буфер</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-bs-level="3"><a href="#_25" class="nav-link">Вставить текст из буфера</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+              </ul>
+            </li>
+            <li class="nav-item" data-bs-level="2"><a href="#_26" class="nav-link">Язык интерфейса</a>
+              <ul class="nav flex-column">
+            <li class="nav-item" data-bs-level="3"><a href="#_27" class="nav-link">Сменить язык</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+              </ul>
+            </li>
+            <li class="nav-item" data-bs-level="2"><a href="#_28" class="nav-link">Таймеры</a>
+              <ul class="nav flex-column">
+            <li class="nav-item" data-bs-level="3"><a href="#_29" class="nav-link">Запустить таймер</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-bs-level="3"><a href="#_30" class="nav-link">Остановить таймер</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-bs-level="3"><a href="#_31" class="nav-link">Перезапустить таймер</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-bs-level="3"><a href="#_32" class="nav-link">Остановить все таймеры</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+              </ul>
+            </li>
+            <li class="nav-item" data-bs-level="2"><a href="#_33" class="nav-link">Таймер бездействия</a>
+              <ul class="nav flex-column">
+            <li class="nav-item" data-bs-level="3"><a href="#_34" class="nav-link">Запустить</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-bs-level="3"><a href="#_35" class="nav-link">Остановить</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-bs-level="3"><a href="#_36" class="nav-link">Перезапустить</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-bs-level="3"><a href="#_37" class="nav-link">Задать команду при срабатывании</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-bs-level="3"><a href="#_38" class="nav-link">Задать таймаут (в секундах)</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+              </ul>
+            </li>
+            <li class="nav-item" data-bs-level="2"><a href="#_39" class="nav-link">Оверлеи</a>
+              <ul class="nav flex-column">
+            <li class="nav-item" data-bs-level="3"><a href="#_40" class="nav-link">Показать оверлей</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-bs-level="3"><a href="#_41" class="nav-link">Скрыть оверлей</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-bs-level="3"><a href="#_42" class="nav-link">Переключить оверлей</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+              </ul>
+            </li>
+            <li class="nav-item" data-bs-level="2"><a href="#auxilary" class="nav-link">Вызов устройств (Auxilary)</a>
+              <ul class="nav flex-column">
+            <li class="nav-item" data-bs-level="3"><a href="#_43" class="nav-link">Простой вызов (без параметров и обработки результата)</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-bs-level="3"><a href="#_44" class="nav-link">Расширенный вызов (с параметрами и ветвлением)</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+              </ul>
+            </li>
+            <li class="nav-item" data-bs-level="2"><a href="#api" class="nav-link">Вызов API</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-bs-level="2"><a href="#_45" class="nav-link">Выполнение нескольких команд</a>
+              <ul class="nav flex-column">
+            <li class="nav-item" data-bs-level="3"><a href="#_46" class="nav-link">Список команд в одной строке</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-bs-level="3"><a href="#_47" class="nav-link">Список команд в массиве</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+              </ul>
+            </li>
+            <li class="nav-item" data-bs-level="2"><a href="#_48" class="nav-link">Отмена асинхронных операций</a>
+              <ul class="nav flex-column">
+            <li class="nav-item" data-bs-level="3"><a href="#_49" class="nav-link">Отменить операцию по токену</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-bs-level="3"><a href="#_50" class="nav-link">Отменить все операции</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+              </ul>
+            </li>
+            <li class="nav-item" data-bs-level="2"><a href="#_51" class="nav-link">Скрытая маска поля ввода</a>
+              <ul class="nav flex-column">
+            <li class="nav-item" data-bs-level="3"><a href="#_52" class="nav-link">Переключить маскировку символов</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+              </ul>
+            </li>
+            <li class="nav-item" data-bs-level="2"><a href="#_53" class="nav-link">Вызов зарегистрированной команды</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+              </ul>
+            </li>
         </ul>
     </div>
 </div></div>
                     <div class="col-md-9" role="main">
 
-</div>
+<h1 id="commands">Команды (Commands)<a class="headerlink" href="#commands" title="Permanent link">&para;</a></h1>
+<p>Команды — это строки или объекты, которые описывают действие, которое должна выполнить система. Они используются в полях <code>onComplete</code>, <code>onSuccess</code>, <code>onFailure</code>, <code>onError</code>, <code>OnClick</code>, <code>OnOpened</code> и других событиях.</p>
+<p>Команды бывают двух видов:
+1. <strong>Строковые команды</strong> — простая строка вида <code>"screen:win_Main"</code>. Описаны на этой странице.
+2. <strong>Объектные команды</strong> — объект <code>CommandDefinition</code> для вызова API и внешних устройств. Описаны в разделе <a href="Apis">Apis</a> и <a href="Auxilary">Auxilary</a>.</p>
+<hr />
+<h2 id="_1">Навигация<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h2>
+<h3 id="_2">Перейти на экран<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h3>
+<div class="codehilite"><pre><span></span><code><span class="s2">&quot;screen:windowId&quot;</span>
+</code></pre></div>
+
+<p>Открывает экран с указанным идентификатором. Предыдущий экран сохраняется в истории.</p>
+<hr />
+<h3 id="_3">Вернуться назад<a class="headerlink" href="#_3" title="Permanent link">&para;</a></h3>
+<div class="codehilite"><pre><span></span><code><span class="s2">&quot;back&quot;</span>
+</code></pre></div>
+
+<p>Закрывает текущий экран и возвращается к предыдущему. Если текущий экран — корневой, команда игнорируется.</p>
+<hr />
+<h3 id="_4">Вернуться на корневой экран<a class="headerlink" href="#_4" title="Permanent link">&para;</a></h3>
+<div class="codehilite"><pre><span></span><code><span class="s2">&quot;root&quot;</span>
+</code></pre></div>
+
+<p>Закрывает все экраны в истории и переходит на корневой экран. Также сбрасывает сессию пользователя.</p>
+<hr />
+<h2 id="_5">Сообщения об ошибках и предупреждениях<a class="headerlink" href="#_5" title="Permanent link">&para;</a></h2>
+<h3 id="_6">Показать предупреждение<a class="headerlink" href="#_6" title="Permanent link">&para;</a></h3>
+<div class="codehilite"><pre><span></span><code><span class="s2">&quot;warning:WarningTextKey&quot;</span>
+<span class="s2">&quot;warning:WarningTextKey|DescriptionKey&quot;</span>
+<span class="s2">&quot;warning:WarningTextKey|DescriptionKey|win_CustomWarning&quot;</span>
+</code></pre></div>
+
+<p>Сохраняет текст в <code>persistent:WarningText</code> и <code>persistent:WarningDescription</code>, затем открывает экран предупреждения.<br />
+По умолчанию используется экран <code>win_Warning</code>. Третьим параметром можно указать произвольный экран.</p>
+<hr />
+<h3 id="_7">Показать ошибку<a class="headerlink" href="#_7" title="Permanent link">&para;</a></h3>
+<div class="codehilite"><pre><span></span><code><span class="s2">&quot;error:ErrorTextKey&quot;</span>
+<span class="s2">&quot;error:ErrorTextKey|DescriptionKey&quot;</span>
+<span class="s2">&quot;error:ErrorTextKey|DescriptionKey|win_CustomError&quot;</span>
+</code></pre></div>
+
+<p>Сохраняет текст в <code>persistent:ErrorText</code> и <code>persistent:ErrorDescription</code>, затем открывает экран ошибки.<br />
+По умолчанию используется экран <code>win_Error</code>. Третьим параметром можно указать произвольный экран.</p>
+<hr />
+<h2 id="_8">Управление элементами<a class="headerlink" href="#_8" title="Permanent link">&para;</a></h2>
+<h3 id="_9">Показать элемент<a class="headerlink" href="#_9" title="Permanent link">&para;</a></h3>
+<div class="codehilite"><pre><span></span><code><span class="s2">&quot;element:show:elementName&quot;</span>
+</code></pre></div>
+
+<h3 id="_10">Скрыть элемент<a class="headerlink" href="#_10" title="Permanent link">&para;</a></h3>
+<div class="codehilite"><pre><span></span><code><span class="s2">&quot;element:hide:elementName&quot;</span>
+</code></pre></div>
+
+<h3 id="_11">Переключить видимость элемента<a class="headerlink" href="#_11" title="Permanent link">&para;</a></h3>
+<div class="codehilite"><pre><span></span><code><span class="s2">&quot;element:toggleshow:elementName&quot;</span>
+</code></pre></div>
+
+<p>Если элемент виден — скрывает его, и наоборот.</p>
+<hr />
+<h3 id="_12">Активировать элемент<a class="headerlink" href="#_12" title="Permanent link">&para;</a></h3>
+<div class="codehilite"><pre><span></span><code><span class="s2">&quot;element:activate:elementName&quot;</span>
+</code></pre></div>
+
+<p>Устанавливает <code>IsEnabled = true</code>. Используется, например, для разблокировки кнопок.</p>
+<h3 id="_13">Деактивировать элемент<a class="headerlink" href="#_13" title="Permanent link">&para;</a></h3>
+<div class="codehilite"><pre><span></span><code><span class="s2">&quot;element:deactivate:elementName&quot;</span>
+</code></pre></div>
+
+<p>Устанавливает <code>IsEnabled = false</code>.</p>
+<h3 id="_14">Переключить активацию элемента<a class="headerlink" href="#_14" title="Permanent link">&para;</a></h3>
+<div class="codehilite"><pre><span></span><code><span class="s2">&quot;element:toggleactivate:elementName&quot;</span>
+</code></pre></div>
+
+<hr />
+<h3 id="_15">Применить стиль текста к элементу<a class="headerlink" href="#_15" title="Permanent link">&para;</a></h3>
+<div class="codehilite"><pre><span></span><code><span class="s2">&quot;element:setTextStyle:elementName#styleName&quot;</span>
+</code></pre></div>
+
+<p>Применяет текстовый стиль из раздела <a href="Styles">Styles</a> к указанному элементу (Label или InputField).</p>
+<h3 id="_16">Сбросить стиль текста элемента<a class="headerlink" href="#_16" title="Permanent link">&para;</a></h3>
+<div class="codehilite"><pre><span></span><code><span class="s2">&quot;element:resetTextStyle:elementName&quot;</span>
+</code></pre></div>
+
+<p>Возвращает элементу исходный стиль, заданный в его определении.</p>
+<hr />
+<h3 id="_17">Передать фокус на поле ввода<a class="headerlink" href="#_17" title="Permanent link">&para;</a></h3>
+<div class="codehilite"><pre><span></span><code><span class="s2">&quot;focus:elementName&quot;</span>
+</code></pre></div>
+
+<p>Передаёт фокус на InputField и открывает клавиатуру по умолчанию.</p>
+<hr />
+<h2 id="_18">Работа с переменными<a class="headerlink" href="#_18" title="Permanent link">&para;</a></h2>
+<p>Подробнее об операциях соединения, разделения строк и порядке выполнения — в разделе <a href="VariablesFunctions">Операции с переменными</a>.</p>
+<h3 id="_19">Записать значение в сессию<a class="headerlink" href="#_19" title="Permanent link">&para;</a></h3>
+<div class="codehilite"><pre><span></span><code><span class="s2">&quot;add:varName&quot;</span>
+<span class="s2">&quot;add:varName#value&quot;</span>
+</code></pre></div>
+
+<p>Если указан только ключ — записывает <code>true</code>.<br />
+Если указано значение — разрешает его (поддерживает конкатенацию <code>&amp;&amp;</code> и Split) и записывает результат в <code>session:varName</code>.<br />
+Всегда перезаписывает существующее значение.</p>
+<hr />
+<h3 id="_20">Записать в сессию (только если пусто)<a class="headerlink" href="#_20" title="Permanent link">&para;</a></h3>
+<div class="codehilite"><pre><span></span><code><span class="s2">&quot;fill:varName&quot;</span>
+<span class="s2">&quot;fill:varName#value&quot;</span>
+</code></pre></div>
+
+<p>Аналог <code>add:</code>, но записывает значение только если переменная ещё не существует в сессии.</p>
+<hr />
+<h3 id="_21">Удалить переменную из сессии<a class="headerlink" href="#_21" title="Permanent link">&para;</a></h3>
+<div class="codehilite"><pre><span></span><code><span class="s2">&quot;remove:varName&quot;</span>
+</code></pre></div>
+
+<hr />
+<h3 id="persistent">Записать в persistent (только если пусто)<a class="headerlink" href="#persistent" title="Permanent link">&para;</a></h3>
+<div class="codehilite"><pre><span></span><code><span class="s2">&quot;persistentfill:varName&quot;</span>
+<span class="s2">&quot;persistentfill:varName#value&quot;</span>
+</code></pre></div>
+
+<p>Аналог <code>fill:</code>, но работает с постоянным хранилищем <code>PersistentData</code>.</p>
+<hr />
+<h3 id="persistent_1">Удалить переменную из persistent<a class="headerlink" href="#persistent_1" title="Permanent link">&para;</a></h3>
+<div class="codehilite"><pre><span></span><code><span class="s2">&quot;persistentremove:varName&quot;</span>
+</code></pre></div>
+
+<hr />
+<h3 id="_22">Скопировать значение в сессию<a class="headerlink" href="#_22" title="Permanent link">&para;</a></h3>
+<div class="codehilite"><pre><span></span><code><span class="s2">&quot;pushSession:sourceKey&gt;targetKey&quot;</span>
+</code></pre></div>
+
+<p>Копирует значение переменной <code>sourceKey</code> (ищет сначала в Session, затем в Persistent) в <code>session:targetKey</code>.</p>
+<hr />
+<h3 id="persistent_2">Скопировать значение в persistent<a class="headerlink" href="#persistent_2" title="Permanent link">&para;</a></h3>
+<div class="codehilite"><pre><span></span><code><span class="s2">&quot;pushPersistent:sourceKey&gt;targetKey&quot;</span>
+</code></pre></div>
+
+<p>Копирует значение переменной <code>sourceKey</code> в <code>persistent:targetKey</code>.</p>
+<hr />
+<h2 id="_23">Буфер обмена<a class="headerlink" href="#_23" title="Permanent link">&para;</a></h2>
+<h3 id="_24">Скопировать текст в буфер<a class="headerlink" href="#_24" title="Permanent link">&para;</a></h3>
+<div class="codehilite"><pre><span></span><code><span class="s2">&quot;copyFrom:elementName&quot;</span>
+<span class="s2">&quot;copyFrom:session:varName&quot;</span>
+<span class="s2">&quot;copyFrom:persistent:varName&quot;</span>
+</code></pre></div>
+
+<p>Копирует текст из InputField или Label в буфер обмена. Также поддерживает прямое чтение из переменных.</p>
+<hr />
+<h3 id="_25">Вставить текст из буфера<a class="headerlink" href="#_25" title="Permanent link">&para;</a></h3>
+<div class="codehilite"><pre><span></span><code><span class="s2">&quot;pasteTo:elementName&quot;</span>
+</code></pre></div>
+
+<p>Вставляет текст из буфера в InputField или Label. Максимальная длина — 1000 символов.</p>
+<hr />
+<h2 id="_26">Язык интерфейса<a class="headerlink" href="#_26" title="Permanent link">&para;</a></h2>
+<h3 id="_27">Сменить язык<a class="headerlink" href="#_27" title="Permanent link">&para;</a></h3>
+<div class="codehilite"><pre><span></span><code><span class="s2">&quot;language:ru&quot;</span>
+<span class="s2">&quot;language:session:selectedLanguage&quot;</span>
+<span class="s2">&quot;language:persistent:selectedLanguage&quot;</span>
+</code></pre></div>
+
+<p>Устанавливает язык интерфейса. Ключ языка должен совпадать с колонкой в файле <code>Translations.xlsx</code>.<br />
+Поддерживает прямое указание кода языка, а также чтение из Session и Persistent.</p>
+<hr />
+<h2 id="_28">Таймеры<a class="headerlink" href="#_28" title="Permanent link">&para;</a></h2>
+<p>Подробнее о структуре таймеров — в разделе <a href="Timers">Timers</a>.</p>
+<h3 id="_29">Запустить таймер<a class="headerlink" href="#_29" title="Permanent link">&para;</a></h3>
+<div class="codehilite"><pre><span></span><code><span class="s2">&quot;timer.start:timerName&quot;</span>
+</code></pre></div>
+
+<h3 id="_30">Остановить таймер<a class="headerlink" href="#_30" title="Permanent link">&para;</a></h3>
+<div class="codehilite"><pre><span></span><code><span class="s2">&quot;timer.stop:timerName&quot;</span>
+</code></pre></div>
+
+<h3 id="_31">Перезапустить таймер<a class="headerlink" href="#_31" title="Permanent link">&para;</a></h3>
+<div class="codehilite"><pre><span></span><code><span class="s2">&quot;timer.reset:timerName&quot;</span>
+</code></pre></div>
+
+<h3 id="_32">Остановить все таймеры<a class="headerlink" href="#_32" title="Permanent link">&para;</a></h3>
+<div class="codehilite"><pre><span></span><code><span class="s2">&quot;timers.allstop&quot;</span>
+</code></pre></div>
+
+<hr />
+<h2 id="_33">Таймер бездействия<a class="headerlink" href="#_33" title="Permanent link">&para;</a></h2>
+<p>Таймер бездействия отслеживает активность пользователя (нажатия, движения мыши). При истечении времени выполняет заданную команду.</p>
+<h3 id="_34">Запустить<a class="headerlink" href="#_34" title="Permanent link">&para;</a></h3>
+<div class="codehilite"><pre><span></span><code><span class="s2">&quot;iTimer:start&quot;</span>
+</code></pre></div>
+
+<p>Запускает таймер. Не запускается, если текущий экран — корневой или экран загрузки.</p>
+<h3 id="_35">Остановить<a class="headerlink" href="#_35" title="Permanent link">&para;</a></h3>
+<div class="codehilite"><pre><span></span><code><span class="s2">&quot;iTimer:stop&quot;</span>
+</code></pre></div>
+
+<h3 id="_36">Перезапустить<a class="headerlink" href="#_36" title="Permanent link">&para;</a></h3>
+<div class="codehilite"><pre><span></span><code><span class="s2">&quot;iTimer:restart&quot;</span>
+</code></pre></div>
+
+<h3 id="_37">Задать команду при срабатывании<a class="headerlink" href="#_37" title="Permanent link">&para;</a></h3>
+<div class="codehilite"><pre><span></span><code><span class="s2">&quot;iTimer:command#screen:win_Standby&quot;</span>
+</code></pre></div>
+
+<p>По умолчанию: <code>"screen:win_StandbyTimerWarning"</code>.</p>
+<h3 id="_38">Задать таймаут (в секундах)<a class="headerlink" href="#_38" title="Permanent link">&para;</a></h3>
+<div class="codehilite"><pre><span></span><code><span class="s2">&quot;iTimer:timeout#120&quot;</span>
+</code></pre></div>
+
+<p>По умолчанию: 180 секунд.</p>
+<hr />
+<h2 id="_39">Оверлеи<a class="headerlink" href="#_39" title="Permanent link">&para;</a></h2>
+<p>Оверлей — это экран, который отображается поверх основного контента. Настраивается в <code>WindowDefinition.Overlay</code>.</p>
+<h3 id="_40">Показать оверлей<a class="headerlink" href="#_40" title="Permanent link">&para;</a></h3>
+<div class="codehilite"><pre><span></span><code><span class="s2">&quot;showOverlay:overlayWindowId&quot;</span>
+</code></pre></div>
+
+<h3 id="_41">Скрыть оверлей<a class="headerlink" href="#_41" title="Permanent link">&para;</a></h3>
+<div class="codehilite"><pre><span></span><code><span class="s2">&quot;hideOverlay:overlayWindowId&quot;</span>
+</code></pre></div>
+
+<h3 id="_42">Переключить оверлей<a class="headerlink" href="#_42" title="Permanent link">&para;</a></h3>
+<div class="codehilite"><pre><span></span><code><span class="s2">&quot;toggleOverlay:overlayWindowId&quot;</span>
+</code></pre></div>
+
+<hr />
+<h2 id="auxilary">Вызов устройств (Auxilary)<a class="headerlink" href="#auxilary" title="Permanent link">&para;</a></h2>
+<h3 id="_43">Простой вызов (без параметров и обработки результата)<a class="headerlink" href="#_43" title="Permanent link">&para;</a></h3>
+<div class="codehilite"><pre><span></span><code><span class="s2">&quot;auxcall:deviceKey.methodName&quot;</span>
+</code></pre></div>
+
+<p>Выполняется асинхронно, без ожидания результата. Используется внутри строковых команд.</p>
+<h3 id="_44">Расширенный вызов (с параметрами и ветвлением)<a class="headerlink" href="#_44" title="Permanent link">&para;</a></h3>
+<p>Используется внутри объектной команды <code>CommandDefinition</code>:</p>
+<div class="codehilite"><pre><span></span><code><span class="p">{</span>
+<span class="w">  </span><span class="nt">&quot;name&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;auxcall:deviceKey|methodName&quot;</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">&quot;parameters&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nt">&quot;param1&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;value1&quot;</span><span class="w"> </span><span class="p">},</span>
+<span class="w">  </span><span class="nt">&quot;saveAs&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;session:resultVar&quot;</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">&quot;onSuccess&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;screen:win_Next&quot;</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">&quot;onFailure&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;screen:win_Error&quot;</span>
+<span class="p">}</span>
+</code></pre></div>
+
+<p>Если устройство возвращает <code>bool</code> — выполняется <code>onSuccess</code> или <code>onFailure</code>.<br />
+Если возвращает любое другое значение — всегда <code>onSuccess</code>. Результат сохраняется в переменную <code>saveAs</code>.<br />
+Подробнее — в разделе <a href="Auxilary">Auxilary</a>.</p>
+<hr />
+<h2 id="api">Вызов API<a class="headerlink" href="#api" title="Permanent link">&para;</a></h2>
+<p>Используется только в виде объектной команды <code>CommandDefinition</code>:</p>
+<div class="codehilite"><pre><span></span><code><span class="p">{</span>
+<span class="w">  </span><span class="nt">&quot;name&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;apicall:requestName&quot;</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">&quot;parameters&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nt">&quot;param1&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;session:varName&quot;</span><span class="w"> </span><span class="p">},</span>
+<span class="w">  </span><span class="nt">&quot;onSuccess&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;screen:win_Next&quot;</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">&quot;onFailure&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;error:RequestFailed&quot;</span>
+<span class="p">}</span>
+</code></pre></div>
+
+<p>Для асинхронного вызова (без блокировки потока):</p>
+<div class="codehilite"><pre><span></span><code><span class="p">{</span>
+<span class="w">  </span><span class="nt">&quot;name&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;apicallasync:requestName&quot;</span><span class="p">,</span>
+<span class="w">  </span><span class="err">...</span>
+<span class="p">}</span>
+</code></pre></div>
+
+<p>Подробнее о настройке запросов — в разделе <a href="Apis">Apis</a>.</p>
+<hr />
+<h2 id="_45">Выполнение нескольких команд<a class="headerlink" href="#_45" title="Permanent link">&para;</a></h2>
+<h3 id="_46">Список команд в одной строке<a class="headerlink" href="#_46" title="Permanent link">&para;</a></h3>
+<div class="codehilite"><pre><span></span><code><span class="s2">&quot;[screen:win_Next, timer.stop:mainTimer, remove:userData]&quot;</span>
+</code></pre></div>
+
+<p>Команды выполняются последовательно.</p>
+<hr />
+<h3 id="_47">Список команд в массиве<a class="headerlink" href="#_47" title="Permanent link">&para;</a></h3>
+<div class="codehilite"><pre><span></span><code><span class="p">[</span>
+<span class="w">  </span><span class="s2">&quot;remove:userData&quot;</span><span class="p">,</span>
+<span class="w">  </span><span class="s2">&quot;timer.stop:mainTimer&quot;</span><span class="p">,</span>
+<span class="w">  </span><span class="s2">&quot;screen:win_Next&quot;</span>
+<span class="p">]</span>
+</code></pre></div>
+
+<p>Поддерживается в полях <code>onSuccess</code>, <code>onFailure</code>, <code>onError</code>, <code>OnOpened</code> и других.</p>
+<hr />
+<h2 id="_48">Отмена асинхронных операций<a class="headerlink" href="#_48" title="Permanent link">&para;</a></h2>
+<h3 id="_49">Отменить операцию по токену<a class="headerlink" href="#_49" title="Permanent link">&para;</a></h3>
+<div class="codehilite"><pre><span></span><code><span class="s2">&quot;cancel:tokenName&quot;</span>
+</code></pre></div>
+
+<p>Отменяет конкретную асинхронную операцию, связанную с токеном отмены.</p>
+<h3 id="_50">Отменить все операции<a class="headerlink" href="#_50" title="Permanent link">&para;</a></h3>
+<div class="codehilite"><pre><span></span><code><span class="s2">&quot;cancelAll&quot;</span>
+</code></pre></div>
+
+<hr />
+<h2 id="_51">Скрытая маска поля ввода<a class="headerlink" href="#_51" title="Permanent link">&para;</a></h2>
+<h3 id="_52">Переключить маскировку символов<a class="headerlink" href="#_52" title="Permanent link">&para;</a></h3>
+<div class="codehilite"><pre><span></span><code><span class="s2">&quot;togglemask:elementName&quot;</span>
+</code></pre></div>
+
+<p>Переключает отображение символов в InputField между открытым и скрытым видом (например, для паролей).</p>
+<hr />
+<h2 id="_53">Вызов зарегистрированной команды<a class="headerlink" href="#_53" title="Permanent link">&para;</a></h2>
+<div class="codehilite"><pre><span></span><code><span class="s2">&quot;command:registeredCommandName&quot;</span>
+</code></pre></div>
+
+<p>Запускает команду, зарегистрированную в <code>CommandRegistry</code> через код. Используется для вызова встроенных системных операций (например, <code>ParseHopperState</code>).</p></div>
             </div>
         </div>
 

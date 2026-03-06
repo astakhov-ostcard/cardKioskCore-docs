@@ -85,12 +85,92 @@
     
     <div id="toc-collapse" class="navbar-collapse collapse card bg-body-tertiary">
         <ul class="nav flex-column">
+            
+            <li class="nav-item" data-bs-level="2"><a href="#auxilary" class="nav-link">Auxilary</a>
+              <ul class="nav flex-column">
+            <li class="nav-item" data-bs-level="3"><a href="#_1" class="nav-link">Общие параметры устройства</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+              </ul>
+            </li>
         </ul>
     </div>
 </div></div>
                     <div class="col-md-9" role="main">
 
-</div>
+<h2 id="auxilary">Auxilary<a class="headerlink" href="#auxilary" title="Permanent link">&para;</a></h2>
+<p>Раздел <code>auxilary</code> описывает подключаемые физические устройства (QR-сканеры, COM-контроллеры, камеры). Устройства управляются командой <code>auxcall:deviceKey.methodName</code>.</p>
+<div class="codehilite"><pre><span></span><code><span class="p">{</span>
+<span class="w">  </span><span class="nt">&quot;auxilary&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
+<span class="w">    </span><span class="p">{</span>
+<span class="w">      </span><span class="nt">&quot;key&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;qrReader&quot;</span><span class="p">,</span>
+<span class="w">      </span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;QrReader&quot;</span><span class="p">,</span>
+<span class="w">      </span><span class="nt">&quot;settings&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="nt">&quot;port&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;COM3&quot;</span>
+<span class="w">      </span><span class="p">},</span>
+<span class="w">      </span><span class="nt">&quot;autoStart&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span>
+<span class="w">      </span><span class="nt">&quot;enabled&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span>
+<span class="w">      </span><span class="nt">&quot;events&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="nt">&quot;onTriggered&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">          </span><span class="nt">&quot;saveAs&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;qrdata&quot;</span><span class="p">,</span>
+<span class="w">          </span><span class="nt">&quot;route&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;screen:win_QrResult&quot;</span>
+<span class="w">        </span><span class="p">}</span>
+<span class="w">      </span><span class="p">}</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="w">  </span><span class="p">]</span>
+<span class="p">}</span>
+</code></pre></div>
+
+<h3 id="_1">Общие параметры устройства<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>Параметр</th>
+<th>Тип</th>
+<th>Обязательный</th>
+<th>Описание</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>key</code></td>
+<td>string</td>
+<td>✓</td>
+<td>Уникальный идентификатор устройства. Используется в командах <code>auxcall:key.method</code></td>
+</tr>
+<tr>
+<td><code>type</code></td>
+<td>string</td>
+<td>✓</td>
+<td>Тип устройства. Определяет класс-обёртку и доступные методы</td>
+</tr>
+<tr>
+<td><code>settings</code></td>
+<td>object</td>
+<td></td>
+<td>Настройки устройства (зависят от типа)</td>
+</tr>
+<tr>
+<td><code>autoStart</code></td>
+<td>bool</td>
+<td></td>
+<td>Если <code>true</code> — устройство инициализируется и запускается автоматически при старте приложения</td>
+</tr>
+<tr>
+<td><code>enabled</code></td>
+<td>bool</td>
+<td>✓</td>
+<td>Если <code>false</code> — устройство полностью игнорируется системой</td>
+</tr>
+<tr>
+<td><code>events</code></td>
+<td>object</td>
+<td></td>
+<td>Обработчики событий устройства</td>
+</tr>
+</tbody>
+</table></div>
             </div>
         </div>
 

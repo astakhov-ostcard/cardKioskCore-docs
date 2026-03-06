@@ -85,12 +85,63 @@
     
     <div id="toc-collapse" class="navbar-collapse collapse card bg-body-tertiary">
         <ul class="nav flex-column">
+            
+            <li class="nav-item" data-bs-level="2"><a href="#video" class="nav-link">Video</a>
+              <ul class="nav flex-column">
+            <li class="nav-item" data-bs-level="3"><a href="#customproperties" class="nav-link">CustomProperties</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+              </ul>
+            </li>
         </ul>
     </div>
 </div></div>
                     <div class="col-md-9" role="main">
 
-</div>
+<h2 id="video">Video<a class="headerlink" href="#video" title="Permanent link">&para;</a></h2>
+<p>Воспроизводит видеофайл в бесконечном цикле. Поддерживает отложенную загрузку.</p>
+<div class="codehilite"><pre><span></span><code><span class="p">{</span>
+<span class="w">  </span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Video&quot;</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">&quot;name&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;introClip&quot;</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">&quot;position&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nt">&quot;x&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="nt">&quot;y&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="w"> </span><span class="p">},</span>
+<span class="w">  </span><span class="nt">&quot;size&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nt">&quot;width&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">1080</span><span class="p">,</span><span class="w"> </span><span class="nt">&quot;height&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">1920</span><span class="w"> </span><span class="p">},</span>
+<span class="w">  </span><span class="nt">&quot;customProperties&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="nt">&quot;source&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Videos/screensaver.mp4&quot;</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">&quot;lazyLoad&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;false&quot;</span>
+<span class="w">  </span><span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div>
+
+<h3 id="customproperties">CustomProperties<a class="headerlink" href="#customproperties" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>Ключ</th>
+<th>Тип</th>
+<th>По умолчанию</th>
+<th>Описание</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>source</code></td>
+<td>string</td>
+<td>—</td>
+<td>Путь к видеофайлу. Относительный путь разрешается от папки <code>Videos/</code> внутри ресурсов. Поддерживает абсолютный путь</td>
+</tr>
+<tr>
+<td><code>lazyLoad</code></td>
+<td>string (<code>"true"</code> / <code>"false"</code>)</td>
+<td><code>"false"</code></td>
+<td>Если <code>"true"</code> — видео загружается и воспроизводится только когда элемент становится видимым. При скрытии элемента видео выгружается. Если <code>"false"</code> — видео загружается сразу при создании экрана</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Особенности:</strong>
+- Видео воспроизводится автоматически в бесконечном цикле без звука (Volume = 0)
+- Растяжение — <code>UniformToFill</code> (заполняет всю область с обрезкой)
+- Для фоновых видео рекомендуется <code>lazyLoad: "false"</code>, чтобы избежать задержки воспроизведения</p></div>
             </div>
         </div>
 

@@ -6,9 +6,9 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         
         
-        <link rel="canonical" href="https://USERNAME.github.io/project-docs/Windows/Label/">
+        <link rel="canonical" href="https://USERNAME.github.io/project-docs/Auxilary/QrReader/">
         <link rel="shortcut icon" href="../../img/favicon.ico">
-        <title>Label - Card Kiosk Core documentation</title>
+        <title>QrReader - Card Kiosk Core documentation</title>
         <link href="../../css/bootstrap.min.css" rel="stylesheet">
         <link href="../../css/fontawesome.min.css" rel="stylesheet">
         <link href="../../css/brands.min.css" rel="stylesheet">
@@ -86,16 +86,8 @@
     <div id="toc-collapse" class="navbar-collapse collapse card bg-body-tertiary">
         <ul class="nav flex-column">
             
-            <li class="nav-item" data-bs-level="2"><a href="#label" class="nav-link">Label</a>
+            <li class="nav-item" data-bs-level="3"><a href="#qrreader" class="nav-link">Тип: QrReader</a>
               <ul class="nav flex-column">
-            <li class="nav-item" data-bs-level="3"><a href="#_1" class="nav-link">Параметры</a>
-              <ul class="nav flex-column">
-              </ul>
-            </li>
-            <li class="nav-item" data-bs-level="3"><a href="#customproperties" class="nav-link">CustomProperties</a>
-              <ul class="nav flex-column">
-              </ul>
-            </li>
               </ul>
             </li>
         </ul>
@@ -103,86 +95,40 @@
 </div></div>
                     <div class="col-md-9" role="main">
 
-<h2 id="label">Label<a class="headerlink" href="#label" title="Permanent link">&para;</a></h2>
-<p>Текстовая метка. Отображает переведённый текст с поддержкой динамических аргументов, кликабельных областей и HTML-разметки.</p>
+<h3 id="qrreader">Тип: QrReader<a class="headerlink" href="#qrreader" title="Permanent link">&para;</a></h3>
+<p>QR-сканер, подключённый по COM-порту.</p>
+<p><strong>Настройки (<code>settings</code>):</strong>
+| Ключ | Тип | Описание |
+|---|---|---|
+| <code>port</code> | string | COM-порт устройства. Например: <code>"COM3"</code> |</p>
+<p><strong>Событие <code>onTriggered</code></strong> — срабатывает при успешном сканировании QR-кода:
+| Ключ | Тип | Описание |
+|---|---|---|
+| <code>saveAs</code> | string | Ключ сессии, в который сохраняется отсканированное значение |
+| <code>route</code> | string или CommandDefinition | Команда, выполняемая после сохранения |</p>
 <div class="codehilite"><pre><span></span><code><span class="p">{</span>
-<span class="w">  </span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Label&quot;</span><span class="p">,</span>
-<span class="w">  </span><span class="nt">&quot;name&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;lbl_Title&quot;</span><span class="p">,</span>
-<span class="w">  </span><span class="nt">&quot;styles&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">&quot;s_TitleFont&quot;</span><span class="p">],</span>
-<span class="w">  </span><span class="nt">&quot;margin&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nt">&quot;left&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">100</span><span class="p">,</span><span class="w"> </span><span class="nt">&quot;right&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">100</span><span class="p">,</span><span class="w"> </span><span class="nt">&quot;top&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">192</span><span class="p">,</span><span class="w"> </span><span class="nt">&quot;bottom&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">1600</span><span class="w"> </span><span class="p">},</span>
-<span class="w">  </span><span class="nt">&quot;translationKey&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Welcome.Title&quot;</span><span class="p">,</span>
-<span class="w">  </span><span class="nt">&quot;textStyle&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
-<span class="w">    </span><span class="nt">&quot;fontSize&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">48</span><span class="p">,</span>
-<span class="w">    </span><span class="nt">&quot;foreground&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;#FFFFFF&quot;</span><span class="p">,</span>
-<span class="w">    </span><span class="nt">&quot;textAlignment&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Center&quot;</span>
+<span class="w">  </span><span class="nt">&quot;key&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;qrReader&quot;</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;QrReader&quot;</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">&quot;settings&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nt">&quot;port&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;COM3&quot;</span><span class="w"> </span><span class="p">},</span>
+<span class="w">  </span><span class="nt">&quot;autoStart&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">&quot;enabled&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">&quot;events&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="nt">&quot;onTriggered&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">      </span><span class="nt">&quot;saveAs&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;qrdata&quot;</span><span class="p">,</span>
+<span class="w">      </span><span class="nt">&quot;route&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="nt">&quot;name&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;ParseShowcaseQr&quot;</span>
+<span class="w">      </span><span class="p">}</span>
+<span class="w">    </span><span class="p">}</span>
 <span class="w">  </span><span class="p">}</span>
 <span class="p">}</span>
 </code></pre></div>
 
-<h3 id="_1">Параметры<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h3>
-<table>
-<thead>
-<tr>
-<th>Параметр</th>
-<th>Тип</th>
-<th>Описание</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><code>translationKey</code></td>
-<td>string</td>
-<td>Ключ перевода. Поддерживает <code>session:varName</code> и <code>persistent:varName</code> — текст обновляется автоматически при смене языка или при изменении переменной</td>
-</tr>
-<tr>
-<td><code>textStyle</code></td>
-<td>TextStyle</td>
-<td>Стиль текста. Переопределяет значения из <code>styles</code></td>
-</tr>
-<tr>
-<td><code>styles</code></td>
-<td>string[]</td>
-<td>Массив имён стилей из <a href="Styles">Styles</a>. Применяются последовательно</td>
-</tr>
-<tr>
-<td><code>clickThrough</code> / <code>ClickThrough</code></td>
-<td>bool</td>
-<td>Если <code>true</code> — клик сквозь метку не перехватывается ею, передаётся элементу позади</td>
-</tr>
-</tbody>
-</table>
-<h3 id="customproperties">CustomProperties<a class="headerlink" href="#customproperties" title="Permanent link">&para;</a></h3>
-<table>
-<thead>
-<tr>
-<th>Ключ</th>
-<th>Тип</th>
-<th>Описание</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><code>translationArguments</code></td>
-<td>string</td>
-<td>Аргументы для подстановки в строку перевода через format-placeholders. Перечисляются через запятую. Поддерживают <code>session:varName</code> — значение обновляется автоматически при изменении переменной</td>
-</tr>
-</tbody>
-</table>
-<p><strong>Пример с аргументами:</strong></p>
-<div class="codehilite"><pre><span></span><code><span class="p">{</span>
-<span class="w">  </span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Label&quot;</span><span class="p">,</span>
-<span class="w">  </span><span class="nt">&quot;name&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;lbl_PhoneHint&quot;</span><span class="p">,</span>
-<span class="w">  </span><span class="nt">&quot;translationKey&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;otp.Description&quot;</span><span class="p">,</span>
-<span class="w">  </span><span class="nt">&quot;customProperties&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
-<span class="w">    </span><span class="nt">&quot;translationArguments&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;session:clientPhoneField&quot;</span>
-<span class="w">  </span><span class="p">}</span>
-<span class="p">}</span>
-</code></pre></div>
-
-<p>Строка перевода: <code>"Код отправлен на номер {0}"</code> → подставляется значение <code>session:clientPhoneField</code>.</p>
-<blockquote>
-<p>Label поддерживает html-подобную разметку в значениях перевода: <code>&lt;b&gt;</code>, <code>&lt;i&gt;</code>, <code>&lt;u&gt;</code>, <code>&lt;color=#HEX&gt;</code>, <code>\n</code>. Подробнее — в разделе <a href="Windows#Разметка текста">Windows</a>.</p>
-</blockquote></div>
+<p><strong>Методы для <code>auxcall</code>:</strong>
+| Метод | Описание |
+|---|---|
+| <code>start</code> | Начать прослушивание COM-порта |
+| <code>stop</code> | Остановить прослушивание |</p>
+<hr /></div>
             </div>
         </div>
 
