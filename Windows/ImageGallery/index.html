@@ -85,12 +85,81 @@
     
     <div id="toc-collapse" class="navbar-collapse collapse card bg-body-tertiary">
         <ul class="nav flex-column">
+            
+            <li class="nav-item" data-bs-level="2"><a href="#image-gallery" class="nav-link">Image Gallery</a>
+              <ul class="nav flex-column">
+            <li class="nav-item" data-bs-level="3"><a href="#customproperties" class="nav-link">CustomProperties</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+              </ul>
+            </li>
         </ul>
     </div>
 </div></div>
                     <div class="col-md-9" role="main">
 
-</div>
+<h2 id="image-gallery">Image Gallery<a class="headerlink" href="#image-gallery" title="Permanent link">&para;</a></h2>
+<p>Галерея изображений с переключением через кнопки Назад/Вперёд. Текущий выбранный ключ сохраняется в сессию.</p>
+<div class="codehilite"><pre><span></span><code><span class="p">{</span>
+<span class="w">  </span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;ImageGallery&quot;</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">&quot;name&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;gallery_products&quot;</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">&quot;customProperties&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="nt">&quot;prevButton&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;btn_prev&quot;</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">&quot;nextButton&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;btn_next&quot;</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">&quot;image0&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;img_center&quot;</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">&quot;item0&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;visa&gt;cards/visa.png&quot;</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">&quot;item1&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;mastercard&gt;cards/mastercard.png&quot;</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">&quot;item2&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;mir&gt;cards/mir.png&quot;</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">&quot;defaultKey&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;visa&quot;</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">&quot;onChanged&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;screen:win_ProductDetail&quot;</span>
+<span class="w">  </span><span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div>
+
+<p>После переключения текущий ключ сохраняется в <code>session:{name}.currentItem</code> (в примере — <code>session:gallery_products.currentItem</code>).</p>
+<h3 id="customproperties">CustomProperties<a class="headerlink" href="#customproperties" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>Ключ</th>
+<th>Тип</th>
+<th>Описание</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>prevButton</code></td>
+<td>string</td>
+<td>Имя (<code>name</code>) кнопки-элемента для перехода к предыдущему пункту</td>
+</tr>
+<tr>
+<td><code>nextButton</code></td>
+<td>string</td>
+<td>Имя (<code>name</code>) кнопки-элемента для перехода к следующему пункту</td>
+</tr>
+<tr>
+<td><code>image0</code>, <code>image1</code>, ...</td>
+<td>string</td>
+<td>Имена (<code>name</code>) Image-элементов, в которых отображаются варианты. Центральное изображение — среднее в списке. Остальные показывают соседние пункты</td>
+</tr>
+<tr>
+<td><code>item0</code>, <code>item1</code>, ...</td>
+<td>string</td>
+<td>Пункты галереи в формате <code>"ключ&gt;путь_к_картинке"</code>. Путь разрешается от папки <code>Images/</code> ресурсов</td>
+</tr>
+<tr>
+<td><code>defaultKey</code></td>
+<td>string</td>
+<td>Ключ пункта, выбранного при инициализации</td>
+</tr>
+<tr>
+<td><code>onChanged</code></td>
+<td>string или CommandDefinition</td>
+<td>Команда, выполняемая при каждом переключении</td>
+</tr>
+</tbody>
+</table></div>
             </div>
         </div>
 

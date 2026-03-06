@@ -109,8 +109,8 @@
 
 <h1 id="_1">Продвинутая работа с переменными<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h1>
 <h2 id="_2">Конкатенация (соединение) строк<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h2>
-<pre class="codehilite"><code class="language-json">&quot;add:varName1#varName2&amp;&amp;varName3&quot;
-</code></pre>
+<div class="codehilite"><pre><span></span><code><span class="s2">&quot;add:varName1#varName2&amp;&amp;varName3&quot;</span>
+</code></pre></div>
 
 <p>Что делает команда:<br />
 1. Пытается получить значения переменных varName2 и varName3. Если такие переменные не найдены в SessionData и в PersistentData, то varName2 и varName3 интерпретируются как простой текст.<br />
@@ -123,12 +123,12 @@
 2. "fill:varName1#varName2&amp;&amp;varName3"<br />
 3. "persistentFill:varName1#varName2&amp;&amp;varName3"  </p>
 <p>Соединять можно множество строк. Ограничения по количеству соединений нет.</p>
-<pre class="codehilite"><code class="language-json">&quot;add:varName1#varName2&amp;&amp;-&amp;&amp;varName3&amp;&amp; &amp;&amp;varName4&amp;&amp;someText&quot;
-</code></pre>
+<div class="codehilite"><pre><span></span><code><span class="s2">&quot;add:varName1#varName2&amp;&amp;-&amp;&amp;varName3&amp;&amp; &amp;&amp;varName4&amp;&amp;someText&quot;</span>
+</code></pre></div>
 
 <h2 id="_3">Разделение строки по символу<a class="headerlink" href="#_3" title="Permanent link">&para;</a></h2>
-<pre class="codehilite"><code class="language-json">&quot;add:varName1#varName2.Split(AA,0)&quot;
-</code></pre>
+<div class="codehilite"><pre><span></span><code><span class="s2">&quot;add:varName1#varName2.Split(AA,0)&quot;</span>
+</code></pre></div>
 
 <p>Что делает команда:<br />
 1. Пытается получить значение varName2. Если такая переменная не найдена в SessionData и в PersistentData, то интерпретируется как простой текст "varName2"<br />
@@ -146,8 +146,8 @@
 2. Выполняется <a href="#разделение-строки-по-символу">разделение</a>, если есть<br />
 3. Подстановка оставшихся значений переменных  </p>
 <p>Пример:</p>
-<pre class="codehilite"><code class="language-json">&quot;add:varName1#session:varName-&amp;&amp;varName2.Split(-,0)&quot;
-</code></pre>
+<div class="codehilite"><pre><span></span><code><span class="s2">&quot;add:varName1#session:varName-&amp;&amp;varName2.Split(-,0)&quot;</span>
+</code></pre></div>
 
 <p>Что делает команда:<br />
 1. Пытается получить значение varName2. Если такая переменная не найдена в SessionData и в PersistentData, то интерпретируется как простой текст "varName2"<br />

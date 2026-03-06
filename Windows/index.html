@@ -96,6 +96,26 @@
               <ul class="nav flex-column">
               </ul>
             </li>
+            <li class="nav-item" data-bs-level="2"><a href="#_3" class="nav-link">Общие параметры</a>
+              <ul class="nav flex-column">
+            <li class="nav-item" data-bs-level="3"><a href="#_4" class="nav-link">Позиционирование</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-bs-level="3"><a href="#textstyle" class="nav-link">TextStyle</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-bs-level="3"><a href="#borderoptions" class="nav-link">BorderOptions</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-bs-level="3"><a href="#_5" class="nav-link">Разметка текста</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+              </ul>
+            </li>
               </ul>
             </li>
         </ul>
@@ -118,7 +138,283 @@
 <p><a href="Video">Video</a></p>
 <p><a href="QR">QR</a></p>
 <p><a href="PdfViewer">PDF Viewer</a></p>
-<p><a href="ImageGallery">Image gallery</a></p></div>
+<p><a href="ImageGallery">Image gallery</a></p>
+<h2 id="_3">Общие параметры<a class="headerlink" href="#_3" title="Permanent link">&para;</a></h2>
+<p>Эти параметры доступны у всех элементов.</p>
+<table>
+<thead>
+<tr>
+<th>Параметр</th>
+<th>Тип</th>
+<th>По умолчанию</th>
+<th>Описание</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>type</code></td>
+<td>string</td>
+<td>—</td>
+<td>Тип элемента. Обязательный. Например: <code>"Label"</code>, <code>"Button"</code>, <code>"Image"</code></td>
+</tr>
+<tr>
+<td><code>name</code></td>
+<td>string</td>
+<td>—</td>
+<td>Уникальный идентификатор элемента на экране. Используется для управления через команды <code>element:show:name</code>, <code>element:hide:name</code> и т.д.</td>
+</tr>
+<tr>
+<td><code>visible</code></td>
+<td>bool</td>
+<td><code>true</code></td>
+<td>Видимость элемента при загрузке экрана</td>
+</tr>
+</tbody>
+</table>
+<h3 id="_4">Позиционирование<a class="headerlink" href="#_4" title="Permanent link">&para;</a></h3>
+<p>Элемент можно позиционировать двумя способами: через <code>margin</code> (рекомендуется) или через <code>position</code> (устаревший способ).</p>
+<p><strong>Через <code>margin</code></strong> — гибкое позиционирование с поддержкой растяжения:</p>
+<table>
+<thead>
+<tr>
+<th>Параметр</th>
+<th>Тип</th>
+<th>Описание</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>margin.left</code></td>
+<td>double</td>
+<td>Отступ от левого края</td>
+</tr>
+<tr>
+<td><code>margin.top</code></td>
+<td>double</td>
+<td>Отступ от верхнего края</td>
+</tr>
+<tr>
+<td><code>margin.right</code></td>
+<td>double</td>
+<td>Отступ от правого края</td>
+</tr>
+<tr>
+<td><code>margin.bottom</code></td>
+<td>double</td>
+<td>Отступ от нижнего края</td>
+</tr>
+</tbody>
+</table>
+<p>Логика работы margin:
+- Если указаны одновременно <code>left</code> и <code>right</code> — элемент растягивается по горизонтали (ширина из <code>size</code> игнорируется)
+- Если указаны одновременно <code>top</code> и <code>bottom</code> — элемент растягивается по вертикали (высота из <code>size</code> игнорируется)
+- Если указан только <code>left</code> — элемент прижимается к левому краю
+- Если указан только <code>right</code> — элемент прижимается к правому краю
+- Если не указан ни <code>left</code>, ни <code>right</code> — элемент центрируется горизонтально</p>
+<p><strong>Через <code>position</code></strong> (устаревший, canvas-подобный способ):</p>
+<table>
+<thead>
+<tr>
+<th>Параметр</th>
+<th>Тип</th>
+<th>Описание</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>position.x</code></td>
+<td>double</td>
+<td>Отступ от левого края экрана в пикселях</td>
+</tr>
+<tr>
+<td><code>position.y</code></td>
+<td>double</td>
+<td>Отступ от верхнего края экрана в пикселях</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Размер:</strong></p>
+<table>
+<thead>
+<tr>
+<th>Параметр</th>
+<th>Тип</th>
+<th>По умолчанию</th>
+<th>Описание</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>size.width</code></td>
+<td>double</td>
+<td><code>100</code></td>
+<td>Ширина элемента в пикселях</td>
+</tr>
+<tr>
+<td><code>size.height</code></td>
+<td>double</td>
+<td><code>100</code></td>
+<td>Высота элемента в пикселях</td>
+</tr>
+</tbody>
+</table>
+<h3 id="textstyle">TextStyle<a class="headerlink" href="#textstyle" title="Permanent link">&para;</a></h3>
+<p>Параметры отображения текста. Применяются к Label, Button, InputField.</p>
+<table>
+<thead>
+<tr>
+<th>Параметр</th>
+<th>Тип</th>
+<th>Описание</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>textStyle.fontFamily</code></td>
+<td>string</td>
+<td>Название шрифта, например <code>"Roboto"</code></td>
+</tr>
+<tr>
+<td><code>textStyle.fontSize</code></td>
+<td>double</td>
+<td>Размер шрифта в пикселях</td>
+</tr>
+<tr>
+<td><code>textStyle.fontWeight</code></td>
+<td>string</td>
+<td>Жирность: <code>"Normal"</code>, <code>"Bold"</code>, <code>"Light"</code> и др.</td>
+</tr>
+<tr>
+<td><code>textStyle.fontStyle</code></td>
+<td>string</td>
+<td>Начертание: <code>"Normal"</code>, <code>"Italic"</code></td>
+</tr>
+<tr>
+<td><code>textStyle.foreground</code></td>
+<td>string</td>
+<td>Цвет текста. Поддерживает HEX (<code>#FFFFFF</code>), названия цветов</td>
+</tr>
+<tr>
+<td><code>textStyle.textAlignment</code></td>
+<td>string</td>
+<td>Выравнивание текста: <code>"Left"</code>, <code>"Center"</code>, <code>"Right"</code>, <code>"Justify"</code></td>
+</tr>
+<tr>
+<td><code>textStyle.textWrapping</code></td>
+<td>bool</td>
+<td><code>true</code> — перенос строк, <code>false</code> — в одну строку</td>
+</tr>
+<tr>
+<td><code>textStyle.textDecorations</code></td>
+<td>string[]</td>
+<td>Массив: <code>["Underline"]</code>, <code>["Strikethrough"]</code></td>
+</tr>
+<tr>
+<td><code>textStyle.horizontalAlignment</code></td>
+<td>string</td>
+<td>Горизонтальное выравнивание блока: <code>"Left"</code>, <code>"Center"</code>, <code>"Right"</code>, <code>"Stretch"</code></td>
+</tr>
+<tr>
+<td><code>textStyle.verticalAlignment</code></td>
+<td>string</td>
+<td>Вертикальное выравнивание блока: <code>"Top"</code>, <code>"Center"</code>, <code>"Bottom"</code>, <code>"Stretch"</code></td>
+</tr>
+<tr>
+<td><code>textStyle.padding</code></td>
+<td>MarginDefinition</td>
+<td>Внутренние отступы текста (left, top, right, bottom)</td>
+</tr>
+</tbody>
+</table>
+<h3 id="borderoptions">BorderOptions<a class="headerlink" href="#borderoptions" title="Permanent link">&para;</a></h3>
+<p>Параметры рамки и фона. Применяются к Border и Button.</p>
+<table>
+<thead>
+<tr>
+<th>Параметр</th>
+<th>Тип</th>
+<th>По умолчанию</th>
+<th>Описание</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>border.background</code></td>
+<td>string</td>
+<td>—</td>
+<td>Цвет фона (HEX или название)</td>
+</tr>
+<tr>
+<td><code>border.borderBrush</code></td>
+<td>string</td>
+<td>—</td>
+<td>Цвет рамки</td>
+</tr>
+<tr>
+<td><code>border.borderThickness</code></td>
+<td>double</td>
+<td><code>0</code></td>
+<td>Толщина рамки в пикселях</td>
+</tr>
+<tr>
+<td><code>border.cornerRadius</code></td>
+<td>double</td>
+<td><code>0</code></td>
+<td>Скругление углов в пикселях</td>
+</tr>
+<tr>
+<td><code>border.horizontalAlignment</code></td>
+<td>string</td>
+<td>—</td>
+<td>Горизонтальное выравнивание внутри контейнера</td>
+</tr>
+<tr>
+<td><code>border.verticalAlignment</code></td>
+<td>string</td>
+<td>—</td>
+<td>Вертикальное выравнивание внутри контейнера</td>
+</tr>
+<tr>
+<td><code>border.padding</code></td>
+<td>MarginDefinition</td>
+<td>—</td>
+<td>Внутренние отступы (left, top, right, bottom)</td>
+</tr>
+</tbody>
+</table>
+<h3 id="_5">Разметка текста<a class="headerlink" href="#_5" title="Permanent link">&para;</a></h3>
+<p>В полях <code>translationKey</code> (и в переводах, которые они ссылаются) поддерживаются html-подобные теги для форматирования:</p>
+<table>
+<thead>
+<tr>
+<th>Тег</th>
+<th>Описание</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>&lt;b&gt;текст&lt;/b&gt;</code></td>
+<td>Жирный текст</td>
+</tr>
+<tr>
+<td><code>&lt;i&gt;текст&lt;/i&gt;</code></td>
+<td>Курсив</td>
+</tr>
+<tr>
+<td><code>&lt;u&gt;текст&lt;/u&gt;</code></td>
+<td>Подчёркивание</td>
+</tr>
+<tr>
+<td><code>&lt;color=#FF0000&gt;текст&lt;/color&gt;</code></td>
+<td>Цвет текста. Поддерживаются HEX и названия цветов</td>
+</tr>
+<tr>
+<td><code>\n</code></td>
+<td>Перенос строки</td>
+</tr>
+</tbody>
+</table>
+<p>Теги можно вкладывать друг в друга: <code>&lt;b&gt;&lt;color=#FF0000&gt;красный жирный&lt;/color&gt;&lt;/b&gt;</code></p></div>
             </div>
         </div>
 

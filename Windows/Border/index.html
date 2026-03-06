@@ -85,12 +85,56 @@
     
     <div id="toc-collapse" class="navbar-collapse collapse card bg-body-tertiary">
         <ul class="nav flex-column">
+            
+            <li class="nav-item" data-bs-level="2"><a href="#border" class="nav-link">Border</a>
+              <ul class="nav flex-column">
+            <li class="nav-item" data-bs-level="3"><a href="#_1" class="nav-link">Параметры</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+              </ul>
+            </li>
         </ul>
     </div>
 </div></div>
                     <div class="col-md-9" role="main">
 
-</div>
+<h2 id="border">Border<a class="headerlink" href="#border" title="Permanent link">&para;</a></h2>
+<p>Прямоугольник — используется как декоративный фон, разделитель или контейнер.</p>
+<div class="codehilite"><pre><span></span><code><span class="p">{</span>
+<span class="w">  </span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Border&quot;</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">&quot;name&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;bg_card&quot;</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">&quot;margin&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nt">&quot;left&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">40</span><span class="p">,</span><span class="w"> </span><span class="nt">&quot;top&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">300</span><span class="p">,</span><span class="w"> </span><span class="nt">&quot;right&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">40</span><span class="w"> </span><span class="p">},</span>
+<span class="w">  </span><span class="nt">&quot;size&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nt">&quot;height&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">400</span><span class="w"> </span><span class="p">},</span>
+<span class="w">  </span><span class="nt">&quot;border&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="nt">&quot;background&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;#1E293B&quot;</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">&quot;borderBrush&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;#334155&quot;</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">&quot;borderThickness&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">&quot;cornerRadius&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">24</span>
+<span class="w">  </span><span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div>
+
+<h3 id="_1">Параметры<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>Параметр</th>
+<th>Тип</th>
+<th>Описание</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>border</code></td>
+<td>BorderOptions</td>
+<td>Обязательный для визуального отображения. Задаёт фон, рамку, скругление и выравнивание</td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<p>Border не поддерживает текст, клики и дочерние элементы — это чисто визуальный слой.</p>
+</blockquote></div>
             </div>
         </div>
 
