@@ -1,0 +1,33 @@
+## Buttons Toggle Group
+
+Служебный элемент — управляет группой кнопок, выделяя активную. Не добавляется на экран визуально — работает как логический контроллер.
+
+```json
+{
+  "type": "ButtonsToggleGroup",
+  "name": "toggle_lang",
+  "customProperties": {
+    "bindPersistent": "-language-",
+    "activeBackgroundColor": "#2563EB",
+    "inactiveBackgroundColor": "#1E293B",
+    "activeForegroundColor": "#FFFFFF",
+    "inactiveForegroundColor": "#94A3B8",
+    "bindButton0": "btn_RU>ru",
+    "bindButton1": "btn_EN>en",
+    "bindButton2": "btn_KZ>kz"
+  }
+}
+```
+
+Когда значение переменной меняется — кнопка, соответствующая новому значению, получает активные цвета и блокируется (`IsEnabled = false`). Остальные кнопки получают неактивные цвета и разблокируются.
+
+### CustomProperties
+
+| Ключ | Тип | Описание |
+|---|---|---|
+| `bindPersistent` | string | Ключ `PersistentData`, за которым следит группа. Изменение значения автоматически обновляет состояние кнопок |
+| `activeBackgroundColor` | string | Цвет фона активной (выбранной) кнопки |
+| `inactiveBackgroundColor` | string | Цвет фона неактивных кнопок |
+| `activeForegroundColor` | string | Цвет текста активной кнопки |
+| `inactiveForegroundColor` | string | Цвет текста неактивных кнопок |
+| `bindButton0`, `bindButton1`, ... | string | Привязка кнопки к значению в формате `"имяКнопки>значение"`. Когда переменная равна `значению` — эта кнопка становится активной |
