@@ -4,17 +4,17 @@
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <meta name="description" content="None">
         
-        <link rel="canonical" href="https://USERNAME.github.io/project-docs/">
-        <link rel="shortcut icon" href="img/favicon.ico">
-        <title>Card Kiosk Core documentation</title>
-        <link href="css/bootstrap.min.css" rel="stylesheet">
-        <link href="css/fontawesome.min.css" rel="stylesheet">
-        <link href="css/brands.min.css" rel="stylesheet">
-        <link href="css/solid.min.css" rel="stylesheet">
-        <link href="css/v4-font-face.min.css" rel="stylesheet">
-        <link href="css/base.css" rel="stylesheet">
+        
+        <link rel="canonical" href="https://USERNAME.github.io/project-docs/SessionData/">
+        <link rel="shortcut icon" href="../img/favicon.ico">
+        <title>SessionData - Card Kiosk Core documentation</title>
+        <link href="../css/bootstrap.min.css" rel="stylesheet">
+        <link href="../css/fontawesome.min.css" rel="stylesheet">
+        <link href="../css/brands.min.css" rel="stylesheet">
+        <link href="../css/solid.min.css" rel="stylesheet">
+        <link href="../css/v4-font-face.min.css" rel="stylesheet">
+        <link href="../css/base.css" rel="stylesheet">
         <link id="hljs-light" rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css" disabled>
         <link id="hljs-dark" rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github-dark.min.css" >
         <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
@@ -24,10 +24,10 @@
         <script>hljs.highlightAll();</script> 
     </head>
 
-    <body class="homepage">
+    <body>
         <div class="navbar fixed-top navbar-expand-lg navbar-dark bg-primary">
             <div class="container">
-                <a class="navbar-brand" href=".">Card Kiosk Core documentation</a>
+                <a class="navbar-brand" href="..">Card Kiosk Core documentation</a>
 
                 <!-- Expanded navigation -->
                 <div id="navbar-collapse" class="navbar-collapse collapse">
@@ -71,7 +71,7 @@
                 </div>
             </div>
         </div>
-        <script src="js/darkmode.js"></script>
+        <script src="../js/darkmode.js"></script>
 
         <div class="container">
             <div class="row">
@@ -86,28 +86,42 @@
     <div id="toc-collapse" class="navbar-collapse collapse card bg-body-tertiary">
         <ul class="nav flex-column">
             
-            <li class="nav-item" data-bs-level="1"><a href="#cardkiosk-visual-editor" class="nav-link">CardKiosk Visual editor</a>
+            <li class="nav-item" data-bs-level="2"><a href="#_1" class="nav-link">Чтение значения</a>
               <ul class="nav flex-column">
-            <li class="nav-item" data-bs-level="2"><a href="#_1" class="nav-link">Работа с редактором</a>
-              <ul class="nav flex-column">
-              </ul>
-            </li>
-            <li class="nav-item" data-bs-level="2"><a href="#json" class="nav-link">Структура json файлов</a>
+            <li class="nav-item" data-bs-level="3"><a href="#_2" class="nav-link">Модификаторы</a>
               <ul class="nav flex-column">
               </ul>
             </li>
-            <li class="nav-item" data-bs-level="2"><a href="#_2" class="nav-link">Работа с переменными</a>
+            <li class="nav-item" data-bs-level="3"><a href="#dot-path" class="nav-link">Вложенные пути (dot-path)</a>
               <ul class="nav flex-column">
               </ul>
             </li>
-            <li class="nav-item" data-bs-level="2"><a href="#_3" class="nav-link">Локализация</a>
+              </ul>
+            </li>
+            
+            <li class="nav-item" data-bs-level="2"><a href="#_3" class="nav-link">Команды</a>
+              <ul class="nav flex-column">
+            <li class="nav-item" data-bs-level="3"><a href="#add" class="nav-link">add: — Записать (всегда)</a>
               <ul class="nav flex-column">
               </ul>
             </li>
-            <li class="nav-item" data-bs-level="2"><a href="#_4" class="nav-link">Алфавитный указатель</a>
+            <li class="nav-item" data-bs-level="3"><a href="#fill" class="nav-link">fill: — Записать (только если пусто)</a>
               <ul class="nav flex-column">
               </ul>
             </li>
+            <li class="nav-item" data-bs-level="3"><a href="#remove" class="nav-link">remove: — Удалить переменную</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-bs-level="3"><a href="#pushsession" class="nav-link">pushSession: — Скопировать значение из другой переменной</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+              </ul>
+            </li>
+            
+            <li class="nav-item" data-bs-level="2"><a href="#_4" class="nav-link">Сводная таблица команд</a>
+              <ul class="nav flex-column">
               </ul>
             </li>
         </ul>
@@ -115,39 +129,118 @@
 </div></div>
                     <div class="col-md-9" role="main">
 
-<h1 id="cardkiosk-visual-editor">CardKiosk Visual editor<a class="headerlink" href="#cardkiosk-visual-editor" title="Permanent link">&para;</a></h1>
+<h2 id="_1">Чтение значения<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h2>
+<p>Для подстановки значения переменной в параметры элементов и команд используется префикс <code>session:</code>:</p>
+<div class="codehilite"><pre><span></span><code><span class="s2">&quot;session:varName&quot;</span>
+</code></pre></div>
+
+<h3 id="_2">Модификаторы<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h3>
+<p>Добавляются через <code>|</code> после имени переменной:</p>
+<table>
+<thead>
+<tr>
+<th>Модификатор</th>
+<th>Описание</th>
+<th>Пример</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>\|fallback:текст</code></td>
+<td>Текст, если переменная не задана</td>
+<td><code>"session:CardNumber\|fallback:Не указан"</code></td>
+</tr>
+<tr>
+<td><code>\|mask:????-????</code></td>
+<td>Форматирование по маске (<code>?</code> — символ значения)</td>
+<td><code>"session:Pin\|mask:????"</code></td>
+</tr>
+</tbody>
+</table>
+<p>Модификаторы можно комбинировать:</p>
+<div class="codehilite"><pre><span></span><code><span class="s2">&quot;session:CardNumber|mask:****-????-????-????|fallback:Нет данных&quot;</span>
+</code></pre></div>
+
+<h3 id="dot-path">Вложенные пути (dot-path)<a class="headerlink" href="#dot-path" title="Permanent link">&para;</a></h3>
+<p>Если в переменную записан JSON-объект (например, результат API), к его полям можно обращаться через точку:</p>
+<div class="codehilite"><pre><span></span><code><span class="s2">&quot;session:clientData.name&quot;</span>
+<span class="s2">&quot;session:accountInfo.balance|fallback:0&quot;</span>
+</code></pre></div>
+
 <hr />
-<h2 id="_1">Работа с редактором<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h2>
-<p><a href="EditorInterface">Интерфейс редактора</a></p>
-<p><a href="QuickStart">Создание простого проекта</a></p>
-<p><a href="FileStructure">Файловая структура проекта</a></p>
-<p><a href="EditorLocalization">Инструменты локализации</a></p>
-<p><a href="EditorCrypto">Инструменты шифрования</a></p>
+<h2 id="_3">Команды<a class="headerlink" href="#_3" title="Permanent link">&para;</a></h2>
+<h3 id="add"><code>add:</code> — Записать (всегда)<a class="headerlink" href="#add" title="Permanent link">&para;</a></h3>
+<div class="codehilite"><pre><span></span><code><span class="s2">&quot;add:varName&quot;</span>
+<span class="s2">&quot;add:varName#value&quot;</span>
+</code></pre></div>
+
+<ul>
+<li>Без <code>#value</code> — записывает значение <code>true</code></li>
+<li>С <code>#value</code> — разрешает значение и записывает результат</li>
+<li><strong>Всегда перезаписывает</strong> существующее значение</li>
+</ul>
 <hr />
-<h2 id="json">Структура json файлов<a class="headerlink" href="#json" title="Permanent link">&para;</a></h2>
-<p>Базовая логика картомата и его внешний вид описывается в формате json. </p>
-<p><a href="Apis">Apis</a> - отправка запросов, интерпретация ответов (REST api) </p>
-<p><a href="Windows">Windows</a> - визуальные элементы, скомпонованные в экраны, которые видит пользователь</p>
-<p><a href="Auxilary">Auxilary</a> - работа с подключаемыми устройствами (сканеры, лотки и т.д.)</p>
-<p><a href="Styles">Styles</a> - наборы параметров отображения визуальных элементов</p>
-<p><a href="Timers">Timers</a> - задержки перед выполнением команд, периодическое выполнение команд</p>
+<h3 id="fill"><code>fill:</code> — Записать (только если пусто)<a class="headerlink" href="#fill" title="Permanent link">&para;</a></h3>
+<div class="codehilite"><pre><span></span><code><span class="s2">&quot;fill:varName&quot;</span>
+<span class="s2">&quot;fill:varName#value&quot;</span>
+</code></pre></div>
+
+<p>Аналог <code>add:</code>, но записывает значение <strong>только если переменная ещё не существует</strong> в SessionData.</p>
 <hr />
-<h2 id="_2">Работа с переменными<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h2>
-<p>Картомат в процессе работы собирает и использует различные данные: номер карты, выбранную услугу, язык интерфейса, результат последней операции и многое другое. Чтобы эти данные были доступны на разных экранах и в разных командах, они хранятся в двух специальных хранилищах.</p>
-<ol>
-<li><a href="SessionData">Sessiond data</a> - хранение данных в рамках одной сессии (одного пользователя). Автоматически удаляются при переходе на стартовый (root) экран. Используется для данных, которые уникальны для каждого пользователя: номер карты, введённый PIN, результаты запросов.  </li>
-<li><a href="PersistentData">Pesistent data</a> -  — долговременное хранилище, которое живёт на протяжении всего времени работы приложения до перезагрузки. Используется для данных, которые не зависят от конкретного пользователя: выбранный язык интерфейса, настройки устройства, счётчики операций.  </li>
-</ol>
-<p><a href="VariablesFunctions">Операции с переменными</a> - соединение и разделение строк, удаление, перезапись и т.д.</p>
+<h3 id="remove"><code>remove:</code> — Удалить переменную<a class="headerlink" href="#remove" title="Permanent link">&para;</a></h3>
+<div class="codehilite"><pre><span></span><code><span class="s2">&quot;remove:varName&quot;</span>
+</code></pre></div>
+
 <hr />
-<h2 id="_3">Локализация<a class="headerlink" href="#_3" title="Permanent link">&para;</a></h2>
-<p>Подстановка текста, ссылок и графики в зависисмости от выбранного пользователем языка. Перед началом работы потребуется понимание <a href="#Структура json файлов">структуры json файлов</a> и <a href="#Работа с переменными">работы с переменными</a></p>
-<p><a href="LocalizationBase">Принцип работы</a></p>
-<p><a href="LocalizationExample">Примеры использования</a></p>
-<p><a href="EditorLocalization">Инструменты редактора</a></p>
+<h3 id="pushsession"><code>pushSession:</code> — Скопировать значение из другой переменной<a class="headerlink" href="#pushsession" title="Permanent link">&para;</a></h3>
+<div class="codehilite"><pre><span></span><code><span class="s2">&quot;pushSession:sourceKey&gt;targetKey&quot;</span>
+</code></pre></div>
+
+<p>Копирует значение переменной <code>sourceKey</code> (ищет сначала в Session, затем в Persistent) в <code>session:targetKey</code>.</p>
 <hr />
-<h2 id="_4">Алфавитный указатель<a class="headerlink" href="#_4" title="Permanent link">&para;</a></h2>
-<p>// TODO</p></div>
+<h2 id="_4">Сводная таблица команд<a class="headerlink" href="#_4" title="Permanent link">&para;</a></h2>
+<table>
+<thead>
+<tr>
+<th>Команда</th>
+<th>Перезаписывает</th>
+<th>Описание</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>add:var</code></td>
+<td>Да</td>
+<td>Записать <code>true</code></td>
+</tr>
+<tr>
+<td><code>add:var#val</code></td>
+<td>Да</td>
+<td>Записать значение</td>
+</tr>
+<tr>
+<td><code>fill:var</code></td>
+<td>Нет</td>
+<td>Записать <code>true</code>, если пусто</td>
+</tr>
+<tr>
+<td><code>fill:var#val</code></td>
+<td>Нет</td>
+<td>Записать значение, если пусто</td>
+</tr>
+<tr>
+<td><code>remove:var</code></td>
+<td>—</td>
+<td>Удалить переменную</td>
+</tr>
+<tr>
+<td><code>pushSession:src&gt;dst</code></td>
+<td>Да</td>
+<td>Скопировать из любого источника в Session</td>
+</tr>
+</tbody>
+</table>
+<hr /></div>
             </div>
         </div>
 
@@ -155,13 +248,13 @@
             <hr>
             <p>Documentation built with <a href="https://www.mkdocs.org/">MkDocs</a>.</p>
         </footer>
-        <script src="js/bootstrap.bundle.min.js"></script>
+        <script src="../js/bootstrap.bundle.min.js"></script>
         <script>
-            var base_url = ".",
+            var base_url = "..",
                 shortcuts = {"help": 191, "next": 78, "previous": 80, "search": 83};
         </script>
-        <script src="js/base.js"></script>
-        <script src="search/main.js"></script>
+        <script src="../js/base.js"></script>
+        <script src="../search/main.js"></script>
 
         <div class="modal" id="mkdocs_search_modal" tabindex="-1" role="dialog" aria-labelledby="searchModalLabel" aria-hidden="true">
     <div class="modal-dialog modal-lg">
@@ -226,8 +319,3 @@
 
     </body>
 </html>
-
-<!--
-MkDocs version : 1.6.1
-Build Date UTC : 2026-03-10 14:27:12.042654+00:00
--->
