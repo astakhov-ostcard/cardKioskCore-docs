@@ -1,0 +1,422 @@
+<!DOCTYPE html>
+<html lang="en" data-bs-theme="dark">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        
+        
+        <link rel="canonical" href="https://USERNAME.github.io/project-docs/LocalizationExample/">
+        <link rel="shortcut icon" href="../img/favicon.ico">
+        <title>Локализация — Примеры использования - Card Kiosk Core documentation</title>
+        <link href="../css/bootstrap.min.css" rel="stylesheet">
+        <link href="../css/fontawesome.min.css" rel="stylesheet">
+        <link href="../css/brands.min.css" rel="stylesheet">
+        <link href="../css/solid.min.css" rel="stylesheet">
+        <link href="../css/v4-font-face.min.css" rel="stylesheet">
+        <link href="../css/base.css" rel="stylesheet">
+        <link id="hljs-light" rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css" disabled>
+        <link id="hljs-dark" rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github-dark.min.css" >
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/languages/yaml.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/languages/csharp.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/languages/json.min.js"></script>
+        <script>hljs.highlightAll();</script> 
+    </head>
+
+    <body>
+        <div class="navbar fixed-top navbar-expand-lg navbar-dark bg-primary">
+            <div class="container">
+                <a class="navbar-brand" href="..">Card Kiosk Core documentation</a>
+
+                <!-- Expanded navigation -->
+                <div id="navbar-collapse" class="navbar-collapse collapse">
+
+                    <ul class="nav navbar-nav ms-md-auto">
+                        <li class="nav-item">
+                            <a href="#" class="nav-link" data-bs-toggle="modal" data-bs-target="#mkdocs_search_modal">
+                                <i class="fa fa-search"></i> Search
+                            </a>
+                        </li>
+                            <li class="nav-item dropdown">
+                              <button id="theme-menu" aria-expanded="false" data-bs-toggle="dropdown" data-bs-display="static" aria-label="Toggle theme" class="nav-link dropdown-toggle">
+                                <i class="fa-solid fa-circle-half-stroke fa-fw"></i>
+                                <span class="d-lg-none ms-2">Toggle theme</span>
+                              </button>
+                              <ul class="dropdown-menu dropdown-menu-end">
+                                <li>
+                                  <button class="dropdown-item d-flex align-items-center" data-bs-theme-value="light" aria-pressed="false">
+                                    <i class="fa-solid fa-sun fa-fw"></i>
+                                    <span class="ms-2">Light</span>
+                                    <i class="fa-solid fa-check ms-auto d-none"></i>
+                                  </button>
+                                </li>
+                                <li>
+                                  <button class="dropdown-item d-flex align-items-center" data-bs-theme-value="dark" aria-pressed="true">
+                                    <i class="fa-solid fa-moon fa-fw"></i>
+                                    <span class="ms-2">Dark</span>
+                                    <i class="fa-solid fa-check ms-auto"></i>
+                                  </button>
+                                </li>
+                                <li>
+                                  <button class="dropdown-item d-flex align-items-center" data-bs-theme-value="auto" aria-pressed="false">
+                                    <i class="fa-solid fa-circle-half-stroke fa-fw"></i>
+                                    <span class="ms-2">Auto</span>
+                                    <i class="fa-solid fa-check ms-auto d-none"></i>
+                                  </button>
+                                </li>
+                              </ul>
+                            </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <script src="../js/darkmode.js"></script>
+
+        <div class="container">
+            <div class="row">
+                    <div class="col-md-3"><div class="navbar-expand-md bs-sidebar hidden-print affix" role="complementary">
+    <div class="navbar-header">
+        <button type="button" class="navbar-toggler collapsed" data-bs-toggle="collapse" data-bs-target="#toc-collapse" title="Table of Contents">
+            <span class="fa fa-angle-down"></span>
+        </button>
+    </div>
+
+    
+    <div id="toc-collapse" class="navbar-collapse collapse card bg-body-tertiary">
+        <ul class="nav flex-column">
+            
+            <li class="nav-item" data-bs-level="1"><a href="#_1" class="nav-link">Локализация — Примеры использования</a>
+              <ul class="nav flex-column">
+            <li class="nav-item" data-bs-level="2"><a href="#1" class="nav-link">1. Статичный текст элемента</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-bs-level="2"><a href="#2" class="nav-link">2. Перевод с подстановкой аргументов</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-bs-level="2"><a href="#3" class="nav-link">3. Динамический ключ из сессии</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-bs-level="2"><a href="#4" class="nav-link">4. Смена языка командой</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-bs-level="2"><a href="#5" class="nav-link">5. Переключатель языков (реальный пример)</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-bs-level="2"><a href="#6" class="nav-link">6. Использование ключей перевода в командах ошибок</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-bs-level="2"><a href="#7" class="nav-link">7. Форматирование текста прямо в переводе</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-bs-level="2"><a href="#8-buttonstogglegroup" class="nav-link">8. buttonsToggleGroup — визуальная привязка к языку</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+              </ul>
+            </li>
+        </ul>
+    </div>
+</div></div>
+                    <div class="col-md-9" role="main">
+
+<h1 id="_1">Локализация — Примеры использования<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h1>
+<h2 id="1">1. Статичный текст элемента<a class="headerlink" href="#1" title="Permanent link">&para;</a></h2>
+<p>Самый простой случай — задать <code>translationKey</code> у label или button. Текст будет автоматически подставлен из активного языка:</p>
+<div class="codehilite"><pre><span></span><code><span class="p">{</span>
+<span class="w">  </span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;label&quot;</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">&quot;name&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;lbl_Title&quot;</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">&quot;styles&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">&quot;s_BaseFont&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;s_TitleFont&quot;</span><span class="p">],</span>
+<span class="w">  </span><span class="nt">&quot;translationKey&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;otp.Title&quot;</span>
+<span class="p">}</span>
+</code></pre></div>
+
+<div class="codehilite"><pre><span></span><code><span class="p">{</span>
+<span class="w">  </span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;button&quot;</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">&quot;name&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;btn_Next&quot;</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">&quot;styles&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">&quot;s_BaseButton&quot;</span><span class="p">],</span>
+<span class="w">  </span><span class="nt">&quot;translationKey&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Default.NextButton&quot;</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">&quot;command&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;screen:win_NextStep&quot;</span>
+<span class="p">}</span>
+</code></pre></div>
+
+<p>При смене языка текст обновится без перезагрузки экрана.</p>
+<hr />
+<h2 id="2">2. Перевод с подстановкой аргументов<a class="headerlink" href="#2" title="Permanent link">&para;</a></h2>
+<p>Если перевод содержит плейсхолдеры <code>{0}</code>, <code>{1}</code> и т.д. — их можно заполнить значениями из сессии через <code>translationArguments</code>:</p>
+<p><strong>В Translations.xlsx:</strong></p>
+<table>
+<thead>
+<tr>
+<th>Ключ</th>
+<th>ru</th>
+<th>uz</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>cardPrint.Title</code></td>
+<td>Печатаем карту, {0}!</td>
+<td>Kartani chop etamiz, {0}!</td>
+</tr>
+<tr>
+<td><code>otp.Description</code></td>
+<td>Код отправлен на номер {0}</td>
+<td>{0} raqamiga kod yuborildi</td>
+</tr>
+</tbody>
+</table>
+<p><strong>В JSON:</strong></p>
+<div class="codehilite"><pre><span></span><code><span class="p">{</span>
+<span class="w">  </span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;label&quot;</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">&quot;name&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;clientPrintingLabel&quot;</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">&quot;styles&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">&quot;s_BaseFont&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;s_TitleFont&quot;</span><span class="p">],</span>
+<span class="w">  </span><span class="nt">&quot;translationKey&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;cardPrint.Title&quot;</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">&quot;customProperties&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="nt">&quot;translationArguments&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;session:cardholder.name&quot;</span>
+<span class="w">  </span><span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div>
+
+<div class="codehilite"><pre><span></span><code><span class="p">{</span>
+<span class="w">  </span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;label&quot;</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">&quot;name&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;HelperLabel&quot;</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">&quot;translationKey&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;otp.Description&quot;</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">&quot;customProperties&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="nt">&quot;translationArguments&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;session:clientPhoneField&quot;</span>
+<span class="w">  </span><span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div>
+
+<p>Несколько аргументов перечисляются через запятую:</p>
+<div class="codehilite"><pre><span></span><code><span class="nt">&quot;translationArguments&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;session:firstName, session:lastName&quot;</span>
+</code></pre></div>
+
+<p>Соответствует переводу: <code>"Здравствуйте, {0} {1}!"</code>.</p>
+<blockquote>
+<p><strong>Важно:</strong> аргументы реактивны — если значение <code>session:clientPhoneField</code> изменится, текст элемента обновится автоматически.</p>
+</blockquote>
+<hr />
+<h2 id="3">3. Динамический ключ из сессии<a class="headerlink" href="#3" title="Permanent link">&para;</a></h2>
+<p>Если сам ключ перевода не известен заранее и зависит от логики — его можно брать из <code>SessionData</code>:</p>
+<div class="codehilite"><pre><span></span><code><span class="p">{</span>
+<span class="w">  </span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;label&quot;</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">&quot;name&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;lbl_Status&quot;</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">&quot;translationKey&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;session:currentStatusKey&quot;</span>
+<span class="p">}</span>
+</code></pre></div>
+
+<p>При изменении <code>session:currentStatusKey</code> (например, командой <code>add:currentStatusKey#error.notFound</code>) — текст элемента автоматически сменится на перевод нового ключа.</p>
+<hr />
+<h2 id="4">4. Смена языка командой<a class="headerlink" href="#4" title="Permanent link">&para;</a></h2>
+<p>Для переключения языка используется команда <code>language:</code>:</p>
+<div class="codehilite"><pre><span></span><code><span class="p">{</span>
+<span class="w">  </span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;button&quot;</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">&quot;name&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;btn_uz&quot;</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">&quot;translationKey&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;UZB&quot;</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">&quot;command&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;language:uz&quot;</span>
+<span class="p">}</span>
+</code></pre></div>
+
+<div class="codehilite"><pre><span></span><code><span class="p">{</span>
+<span class="w">  </span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;button&quot;</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">&quot;name&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;btn_ru&quot;</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">&quot;translationKey&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;RUS&quot;</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">&quot;command&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;language:ru&quot;</span>
+<span class="p">}</span>
+</code></pre></div>
+
+<p><strong>Язык из сессии:</strong></p>
+<div class="codehilite"><pre><span></span><code><span class="nt">&quot;command&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;language:session:userSelectedLang&quot;</span>
+</code></pre></div>
+
+<p><strong>Язык из persistent:</strong></p>
+<div class="codehilite"><pre><span></span><code><span class="nt">&quot;command&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;language:persistent:savedLang&quot;</span>
+</code></pre></div>
+
+<p>Выбранный язык автоматически сохраняется в <code>PersistentData</code> под ключом <code>-language-</code> и остаётся активным на всё время работы приложения.</p>
+<hr />
+<h2 id="5">5. Переключатель языков (реальный пример)<a class="headerlink" href="#5" title="Permanent link">&para;</a></h2>
+<p>Типичный overlay с выбором языка:</p>
+<div class="codehilite"><pre><span></span><code><span class="p">{</span>
+<span class="w">  </span><span class="nt">&quot;windowId&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;over_LangAndLogoOverlay&quot;</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">&quot;backgroundColor&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Transparent&quot;</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">&quot;overlay&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nt">&quot;AutoShow&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w"> </span><span class="nt">&quot;ZIndex&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">150</span><span class="w"> </span><span class="p">},</span>
+<span class="w">  </span><span class="nt">&quot;elements&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
+<span class="w">    </span><span class="p">{</span>
+<span class="w">      </span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;button&quot;</span><span class="p">,</span>
+<span class="w">      </span><span class="nt">&quot;name&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;btn_uz&quot;</span><span class="p">,</span>
+<span class="w">      </span><span class="nt">&quot;styles&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">&quot;s_LangButton&quot;</span><span class="p">],</span>
+<span class="w">      </span><span class="nt">&quot;translationKey&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;UZB&quot;</span><span class="p">,</span>
+<span class="w">      </span><span class="nt">&quot;command&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
+<span class="w">        </span><span class="s2">&quot;language:uz&quot;</span>
+<span class="w">      </span><span class="p">]</span>
+<span class="w">    </span><span class="p">},</span>
+<span class="w">    </span><span class="p">{</span>
+<span class="w">      </span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;button&quot;</span><span class="p">,</span>
+<span class="w">      </span><span class="nt">&quot;name&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;btn_ru&quot;</span><span class="p">,</span>
+<span class="w">      </span><span class="nt">&quot;styles&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">&quot;s_LangButton&quot;</span><span class="p">],</span>
+<span class="w">      </span><span class="nt">&quot;translationKey&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;RUS&quot;</span><span class="p">,</span>
+<span class="w">      </span><span class="nt">&quot;command&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;language:ru&quot;</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="w">  </span><span class="p">]</span>
+<span class="p">}</span>
+</code></pre></div>
+
+<hr />
+<h2 id="6">6. Использование ключей перевода в командах ошибок<a class="headerlink" href="#6" title="Permanent link">&para;</a></h2>
+<p>Ключи переводов используются не только в элементах, но и напрямую в командах <code>error:</code> и <code>warning:</code>:</p>
+<div class="codehilite"><pre><span></span><code><span class="nt">&quot;onError&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;error:error.confirmOtp.title|error.confirmOtp.desc&quot;</span>
+</code></pre></div>
+
+<p>Формат: <code>error:ключ_заголовка|ключ_описания</code></p>
+<p>Оба значения (<code>error.confirmOtp.title</code> и <code>error.confirmOtp.desc</code>) должны присутствовать в <code>Translations.xlsx</code>.</p>
+<hr />
+<h2 id="7">7. Форматирование текста прямо в переводе<a class="headerlink" href="#7" title="Permanent link">&para;</a></h2>
+<p>Строки переводов поддерживают HTML-подобную разметку:</p>
+<table>
+<thead>
+<tr>
+<th>Запись в xlsx</th>
+<th>Результат</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>Нажмите &lt;b&gt;Далее&lt;/b&gt;</code></td>
+<td>Слово «Далее» жирным</td>
+</tr>
+<tr>
+<td><code>&lt;color=#FF6600&gt;Внимание!&lt;/color&gt; Карта готова</code></td>
+<td>«Внимание!» оранжевым</td>
+</tr>
+<tr>
+<td><code>Строка 1\nСтрока 2</code></td>
+<td>Две строки</td>
+</tr>
+<tr>
+<td><code>&lt;b&gt;&lt;color=#FFFFFF&gt;Белый жирный&lt;/color&gt;&lt;/b&gt;</code></td>
+<td>Вложенные теги</td>
+</tr>
+</tbody>
+</table>
+<p>Пример в xlsx:</p>
+<table>
+<thead>
+<tr>
+<th>Ключ</th>
+<th>ru</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>cardReady.Title</code></td>
+<td>Ваша карта <b>готова</b>!\n Заберите её из лотка.</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="8-buttonstogglegroup">8. buttonsToggleGroup — визуальная привязка к языку<a class="headerlink" href="#8-buttonstogglegroup" title="Permanent link">&para;</a></h2>
+<p><code>buttonsToggleGroup</code> позволяет автоматически выделять активную кнопку языка, читая текущее значение из <code>PersistentData</code>. Поскольку язык всегда хранится под ключом <code>-language-</code>, достаточно привязать группу к нему:</p>
+<div class="codehilite"><pre><span></span><code><span class="p">{</span>
+<span class="w">  </span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;buttonsToggleGroup&quot;</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">&quot;name&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;btg_Language&quot;</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">&quot;customProperties&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="nt">&quot;activeBackgroundColor&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;#FFFFFF&quot;</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">&quot;inactiveBackgroundColor&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;#5A5A5C&quot;</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">&quot;activeForegroundColor&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;#5A5A5C&quot;</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">&quot;inactiveForegroundColor&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;#FFFFFF&quot;</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">&quot;bindPersistent&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;-language-&quot;</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">&quot;bindButton1&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;btn_uz&gt;uz&quot;</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">&quot;bindButton2&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;btn_ru&gt;ru&quot;</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">&quot;bindButton3&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;btn_en&gt;en&quot;</span>
+<span class="w">  </span><span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div>
+
+<p>Когда язык меняется командой <code>language:uz</code> — группа автоматически переключает визуальное состояние кнопок без дополнительной логики.</p></div>
+            </div>
+        </div>
+
+        <footer class="col-md-12">
+            <hr>
+            <p>Documentation built with <a href="https://www.mkdocs.org/">MkDocs</a>.</p>
+        </footer>
+        <script src="../js/bootstrap.bundle.min.js"></script>
+        <script>
+            var base_url = "..",
+                shortcuts = {"help": 191, "next": 78, "previous": 80, "search": 83};
+        </script>
+        <script src="../js/base.js"></script>
+        <script src="../search/main.js"></script>
+
+        <div class="modal" id="mkdocs_search_modal" tabindex="-1" role="dialog" aria-labelledby="searchModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title" id="searchModalLabel">Search</h4>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <p>From here you can search these documents. Enter your search terms below.</p>
+                <form>
+                    <div class="form-group">
+                        <input type="search" class="form-control" placeholder="Search..." id="mkdocs-search-query" title="Type search term here">
+                    </div>
+                </form>
+                <div id="mkdocs-search-results" data-no-results-text="No results found"></div>
+            </div>
+            <div class="modal-footer">
+            </div>
+        </div>
+    </div>
+</div><div class="modal" id="mkdocs_keyboard_modal" tabindex="-1" role="dialog" aria-labelledby="keyboardModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title" id="keyboardModalLabel">Keyboard Shortcuts</h4>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+              <table class="table">
+                <thead>
+                  <tr>
+                    <th style="width: 20%;">Keys</th>
+                    <th>Action</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td class="help shortcut"><kbd>?</kbd></td>
+                    <td>Open this help</td>
+                  </tr>
+                  <tr>
+                    <td class="next shortcut"><kbd>n</kbd></td>
+                    <td>Next page</td>
+                  </tr>
+                  <tr>
+                    <td class="prev shortcut"><kbd>p</kbd></td>
+                    <td>Previous page</td>
+                  </tr>
+                  <tr>
+                    <td class="search shortcut"><kbd>s</kbd></td>
+                    <td>Search</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            <div class="modal-footer">
+            </div>
+        </div>
+    </div>
+</div>
+
+    </body>
+</html>

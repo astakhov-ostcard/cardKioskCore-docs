@@ -8,7 +8,7 @@
         
         <link rel="canonical" href="https://USERNAME.github.io/project-docs/LocalizationBase/">
         <link rel="shortcut icon" href="../img/favicon.ico">
-        <title>LocalizationBase - Card Kiosk Core documentation</title>
+        <title>Локализация — Принцип работы - Card Kiosk Core documentation</title>
         <link href="../css/bootstrap.min.css" rel="stylesheet">
         <link href="../css/fontawesome.min.css" rel="stylesheet">
         <link href="../css/brands.min.css" rel="stylesheet">
@@ -85,12 +85,204 @@
     
     <div id="toc-collapse" class="navbar-collapse collapse card bg-body-tertiary">
         <ul class="nav flex-column">
+            
+            <li class="nav-item" data-bs-level="1"><a href="#_1" class="nav-link">Локализация — Принцип работы</a>
+              <ul class="nav flex-column">
+            <li class="nav-item" data-bs-level="2"><a href="#_2" class="nav-link">Обзор</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-bs-level="2"><a href="#translationsxlsx" class="nav-link">Файл переводов Translations.xlsx</a>
+              <ul class="nav flex-column">
+            <li class="nav-item" data-bs-level="3"><a href="#_3" class="nav-link">Пути к файлу</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+              </ul>
+            </li>
+            <li class="nav-item" data-bs-level="2"><a href="#localizationcontroller" class="nav-link">LocalizationController</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-bs-level="2"><a href="#_4" class="nav-link">Язык по умолчанию</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-bs-level="2"><a href="#_5" class="nav-link">Как элемент отображает перевод</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-bs-level="2"><a href="#_6" class="nav-link">Разметка текста в переводах</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-bs-level="2"><a href="#_7" class="nav-link">Хранение выбранного языка</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+              </ul>
+            </li>
         </ul>
     </div>
 </div></div>
                     <div class="col-md-9" role="main">
 
-</div>
+<h1 id="_1">Локализация — Принцип работы<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h1>
+<h2 id="_2">Обзор<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h2>
+<p>Локализация позволяет отображать текст UI на разных языках без изменения JSON-конфигурации. Все переводы хранятся в файле <code>Translations.xlsx</code>, который загружается при старте приложения. Смена языка применяется мгновенно ко всем элементам экрана.</p>
+<p><strong>Поменять язык в картомате можно с помощью команды</strong>
+<code>"language:ключЯзыка"</code></p>
+<hr />
+<h2 id="translationsxlsx">Файл переводов Translations.xlsx<a class="headerlink" href="#translationsxlsx" title="Permanent link">&para;</a></h2>
+<p>Файл представляет собой таблицу, где:</p>
+<ul>
+<li><strong>Первая строка</strong> — заголовки: первая ячейка пустая (или служебная), далее идут ключи языков (<code>uz</code>, <code>ru</code>, <code>en</code> и т.д.)</li>
+<li><strong>Первый столбец</strong> — ключи переводов (например, <code>Default.NextButton</code>, <code>otp.Title</code>)</li>
+<li><strong>Остальные ячейки</strong> — тексты на соответствующем языке</li>
+</ul>
+<p>Пример структуры:</p>
+<table>
+<thead>
+<tr>
+<th><em>(ключ)</em></th>
+<th><code>ru</code></th>
+<th><code>uz</code></th>
+<th><code>en</code></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>Default.NextButton</code></td>
+<td>Далее</td>
+<td>Keyingisi</td>
+<td>Next</td>
+</tr>
+<tr>
+<td><code>otp.Title</code></td>
+<td>Введите код</td>
+<td>Kodni kiriting</td>
+<td>Enter code</td>
+</tr>
+<tr>
+<td><code>cardPrint.Title</code></td>
+<td>Печатаем карту, {0}!</td>
+<td>Kartani chop etamiz, {0}!</td>
+<td>Printing card, {0}!</td>
+</tr>
+</tbody>
+</table>
+<h3 id="_3">Пути к файлу<a class="headerlink" href="#_3" title="Permanent link">&para;</a></h3>
+<p>Система ищет файл в следующем порядке:
+1. <code>%ProgramData%\KioskCommon\Translations.xlsx</code> (путь по умолчанию)
+2. <code>&lt;ResourcesFolder&gt;\Translations.xlsx</code> (папка ресурсов из конфига приложения)</p>
+<p>Если файл не найден — приложение создаёт флаг ошибки и продолжает работу с пустыми переводами (ключи отображаются как есть).</p>
+<hr />
+<h2 id="localizationcontroller">LocalizationController<a class="headerlink" href="#localizationcontroller" title="Permanent link">&para;</a></h2>
+<p>Синглтон <code>LocalizationController</code> отвечает за хранение всех словарей и выдачу переводов.</p>
+<p><strong>Ключевые свойства:</strong></p>
+<table>
+<thead>
+<tr>
+<th>Свойство</th>
+<th>Описание</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>SelectedLang</code></td>
+<td>Текущий активный язык (ключ языка, например <code>"ru"</code>)</td>
+</tr>
+<tr>
+<td><code>SelectedDictionary</code></td>
+<td>Словарь переводов для текущего языка</td>
+</tr>
+<tr>
+<td><code>LangDictionaries</code></td>
+<td>Все языки: <code>Dictionary&lt;string, ObservableKeyDictionary&gt;</code></td>
+</tr>
+</tbody>
+</table>
+<p><strong>Ключевые методы:</strong></p>
+<table>
+<thead>
+<tr>
+<th>Метод</th>
+<th>Описание</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>SetLanguage(string key)</code></td>
+<td>Переключает язык. Если ключ не найден — ничего не происходит</td>
+</tr>
+<tr>
+<td><code>SetDefaultLang()</code></td>
+<td>Устанавливает первый язык из файла</td>
+</tr>
+<tr>
+<td><code>Translate(string key, params object[] values)</code></td>
+<td>Возвращает перевод с подстановкой аргументов через <code>string.Format</code></td>
+</tr>
+</tbody>
+</table>
+<p><strong>Поведение при отсутствии ключа:</strong> если ключ не найден в словаре, <code>Translate</code> возвращает сам ключ как fallback.</p>
+<hr />
+<h2 id="_4">Язык по умолчанию<a class="headerlink" href="#_4" title="Permanent link">&para;</a></h2>
+<p>При инициализации приложения язык устанавливается из поля <code>defaultLanguage</code> корневого JSON-файла:</p>
+<div class="codehilite"><pre><span></span><code><span class="p">{</span>
+<span class="w">  </span><span class="nt">&quot;defaultLanguage&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;ru&quot;</span>
+<span class="p">}</span>
+</code></pre></div>
+
+<p>Он записывается в <code>PersistentData</code> под ключом <code>-language-</code>. Это позволяет элементам реактивно следить за сменой языка через <code>PersistentData.Watch("-language-", ...)</code>.</p>
+<hr />
+<h2 id="_5">Как элемент отображает перевод<a class="headerlink" href="#_5" title="Permanent link">&para;</a></h2>
+<p>При рендеринге label/button с <code>translationKey</code>:</p>
+<ol>
+<li>Читается значение <code>translationKey</code> из JSON-определения элемента.</li>
+<li>Если ключ начинается с <code>session:</code> — он резолвится динамически из <code>SessionData</code> (динамический ключ).</li>
+<li>Из <code>customProperties</code> читаются <code>translationArguments</code> — список аргументов через запятую.</li>
+<li>Вызывается <code>LocalizationController.Instance.Translate(key, args)</code>.</li>
+<li>Результат парсится через <code>ParseHtmlLikeToInlines</code> и отображается в <code>TextBlock</code>.</li>
+<li>Устанавливается реактивная подписка на <code>PersistentData["-language-"]</code> — при смене языка текст обновляется автоматически.</li>
+</ol>
+<hr />
+<h2 id="_6">Разметка текста в переводах<a class="headerlink" href="#_6" title="Permanent link">&para;</a></h2>
+<p>В строках переводов поддерживаются HTML-подобные теги форматирования:</p>
+<table>
+<thead>
+<tr>
+<th>Тег</th>
+<th>Описание</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>&lt;b&gt;текст&lt;/b&gt;</code></td>
+<td>Жирный текст</td>
+</tr>
+<tr>
+<td><code>&lt;i&gt;текст&lt;/i&gt;</code></td>
+<td>Курсив</td>
+</tr>
+<tr>
+<td><code>&lt;u&gt;текст&lt;/u&gt;</code></td>
+<td>Подчёркивание</td>
+</tr>
+<tr>
+<td><code>&lt;color=#FF0000&gt;текст&lt;/color&gt;</code></td>
+<td>Цвет текста (HEX или название)</td>
+</tr>
+<tr>
+<td><code>\n</code></td>
+<td>Перенос строки</td>
+</tr>
+</tbody>
+</table>
+<p>Теги можно вкладывать: <code>&lt;b&gt;&lt;color=#FF0000&gt;красный жирный&lt;/color&gt;&lt;/b&gt;</code></p>
+<hr />
+<h2 id="_7">Хранение выбранного языка<a class="headerlink" href="#_7" title="Permanent link">&para;</a></h2>
+<p>При смене языка командой <code>language:</code> текущий язык сохраняется в <code>PersistentData</code> под ключом <code>-language-</code>. Это означает, что язык сохраняется на всё время работы приложения (до перезагрузки) и не сбрасывается при переходах между экранами.</p></div>
             </div>
         </div>
 
