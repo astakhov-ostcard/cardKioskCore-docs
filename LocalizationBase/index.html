@@ -4,17 +4,17 @@
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <meta name="description" content="None">
         
-        <link rel="canonical" href="https://USERNAME.github.io/project-docs/">
-        <link rel="shortcut icon" href="img/favicon.ico">
-        <title>Card Kiosk Core documentation</title>
-        <link href="css/bootstrap.min.css" rel="stylesheet">
-        <link href="css/fontawesome.min.css" rel="stylesheet">
-        <link href="css/brands.min.css" rel="stylesheet">
-        <link href="css/solid.min.css" rel="stylesheet">
-        <link href="css/v4-font-face.min.css" rel="stylesheet">
-        <link href="css/base.css" rel="stylesheet">
+        
+        <link rel="canonical" href="https://USERNAME.github.io/project-docs/LocalizationBase/">
+        <link rel="shortcut icon" href="../img/favicon.ico">
+        <title>LocalizationBase - Card Kiosk Core documentation</title>
+        <link href="../css/bootstrap.min.css" rel="stylesheet">
+        <link href="../css/fontawesome.min.css" rel="stylesheet">
+        <link href="../css/brands.min.css" rel="stylesheet">
+        <link href="../css/solid.min.css" rel="stylesheet">
+        <link href="../css/v4-font-face.min.css" rel="stylesheet">
+        <link href="../css/base.css" rel="stylesheet">
         <link id="hljs-light" rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css" disabled>
         <link id="hljs-dark" rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github-dark.min.css" >
         <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
@@ -24,10 +24,10 @@
         <script>hljs.highlightAll();</script> 
     </head>
 
-    <body class="homepage">
+    <body>
         <div class="navbar fixed-top navbar-expand-lg navbar-dark bg-primary">
             <div class="container">
-                <a class="navbar-brand" href=".">Card Kiosk Core documentation</a>
+                <a class="navbar-brand" href="..">Card Kiosk Core documentation</a>
 
                 <!-- Expanded navigation -->
                 <div id="navbar-collapse" class="navbar-collapse collapse">
@@ -71,7 +71,7 @@
                 </div>
             </div>
         </div>
-        <script src="js/darkmode.js"></script>
+        <script src="../js/darkmode.js"></script>
 
         <div class="container">
             <div class="row">
@@ -85,69 +85,12 @@
     
     <div id="toc-collapse" class="navbar-collapse collapse card bg-body-tertiary">
         <ul class="nav flex-column">
-            
-            <li class="nav-item" data-bs-level="1"><a href="#cardkiosk-visual-editor" class="nav-link">CardKiosk Visual editor</a>
-              <ul class="nav flex-column">
-            <li class="nav-item" data-bs-level="2"><a href="#_1" class="nav-link">Работа с редактором</a>
-              <ul class="nav flex-column">
-              </ul>
-            </li>
-            <li class="nav-item" data-bs-level="2"><a href="#json" class="nav-link">Структура json файлов</a>
-              <ul class="nav flex-column">
-              </ul>
-            </li>
-            <li class="nav-item" data-bs-level="2"><a href="#_2" class="nav-link">Работа с переменными</a>
-              <ul class="nav flex-column">
-              </ul>
-            </li>
-            <li class="nav-item" data-bs-level="2"><a href="#_3" class="nav-link">Локализация</a>
-              <ul class="nav flex-column">
-              </ul>
-            </li>
-            <li class="nav-item" data-bs-level="2"><a href="#_4" class="nav-link">Алфавитный указатель</a>
-              <ul class="nav flex-column">
-              </ul>
-            </li>
-              </ul>
-            </li>
         </ul>
     </div>
 </div></div>
                     <div class="col-md-9" role="main">
 
-<h1 id="cardkiosk-visual-editor">CardKiosk Visual editor<a class="headerlink" href="#cardkiosk-visual-editor" title="Permanent link">&para;</a></h1>
-<hr />
-<h2 id="_1">Работа с редактором<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h2>
-<p><a href="EditorInterface">Интерфейс редактора</a></p>
-<p><a href="QuickStart">Создание простого проекта</a></p>
-<p><a href="FileStructure">Файловая структура проекта</a></p>
-<p><a href="EditorLocalization">Инструменты локализации</a></p>
-<p><a href="EditorCrypto">Инструменты шифрования</a></p>
-<hr />
-<h2 id="json">Структура json файлов<a class="headerlink" href="#json" title="Permanent link">&para;</a></h2>
-<p>Базовая логика картомата и его внешний вид описывается в формате json. </p>
-<p><a href="Apis">Apis</a> - отправка запросов, интерпретация ответов (REST api) </p>
-<p><a href="Windows">Windows</a> - визуальные элементы, скомпонованные в экраны, которые видит пользователь</p>
-<p><a href="Auxilary">Auxilary</a> - работа с подключаемыми устройствами (сканеры, лотки и т.д.)</p>
-<p><a href="Styles">Styles</a> - наборы параметров отображения визуальных элементов</p>
-<p><a href="Timers">Timers</a> - задержки перед выполнением команд, периодическое выполнение команд</p>
-<hr />
-<h2 id="_2">Работа с переменными<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h2>
-<p>Картомат в процессе работы собирает и использует различные данные: номер карты, выбранную услугу, язык интерфейса, результат последней операции и многое другое. Чтобы эти данные были доступны на разных экранах и в разных командах, они хранятся в двух специальных хранилищах.</p>
-<ol>
-<li><a href="SessionData">Sessiond data</a> - хранение данных в рамках одной сессии (одного пользователя). Автоматически удаляются при переходе на стартовый (root) экран. Используется для данных, которые уникальны для каждого пользователя: номер карты, введённый PIN, результаты запросов.  </li>
-<li><a href="PersistentData">Pesistent data</a> -  — долговременное хранилище, которое живёт на протяжении всего времени работы приложения до перезагрузки. Используется для данных, которые не зависят от конкретного пользователя: выбранный язык интерфейса, настройки устройства, счётчики операций.  </li>
-</ol>
-<p><a href="VariablesFunctions">Операции с переменными</a> - соединение и разделение строк, удаление, перезапись и т.д.</p>
-<hr />
-<h2 id="_3">Локализация<a class="headerlink" href="#_3" title="Permanent link">&para;</a></h2>
-<p>Подстановка текста, ссылок и графики в зависисмости от выбранного пользователем языка. Перед началом работы потребуется понимание <a href="#Структура json файлов">структуры json файлов</a> и <a href="#Работа с переменными">работы с переменными</a></p>
-<p><a href="LocalizationBase/">Принцип работы</a></p>
-<p><a href="LocalizationExample.md">Примеры использования</a></p>
-<p><a href="EditorLocalization.md">Инструменты редактора</a></p>
-<hr />
-<h2 id="_4">Алфавитный указатель<a class="headerlink" href="#_4" title="Permanent link">&para;</a></h2>
-<p>// TODO</p></div>
+</div>
             </div>
         </div>
 
@@ -155,13 +98,13 @@
             <hr>
             <p>Documentation built with <a href="https://www.mkdocs.org/">MkDocs</a>.</p>
         </footer>
-        <script src="js/bootstrap.bundle.min.js"></script>
+        <script src="../js/bootstrap.bundle.min.js"></script>
         <script>
-            var base_url = ".",
+            var base_url = "..",
                 shortcuts = {"help": 191, "next": 78, "previous": 80, "search": 83};
         </script>
-        <script src="js/base.js"></script>
-        <script src="search/main.js"></script>
+        <script src="../js/base.js"></script>
+        <script src="../search/main.js"></script>
 
         <div class="modal" id="mkdocs_search_modal" tabindex="-1" role="dialog" aria-labelledby="searchModalLabel" aria-hidden="true">
     <div class="modal-dialog modal-lg">
@@ -226,8 +169,3 @@
 
     </body>
 </html>
-
-<!--
-MkDocs version : 1.6.1
-Build Date UTC : 2026-03-11 11:35:43.090057+00:00
--->
