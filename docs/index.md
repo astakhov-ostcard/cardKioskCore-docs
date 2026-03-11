@@ -4,15 +4,15 @@
 
 ## Работа с редактором
 
-[Интерфейс редактора](EditorInterface)
+[Интерфейс редактора](EditorInterface.md)
 
-[Создание простого проекта](QuickStart)
+[Создание простого проекта](QuickStart.md)
 
-[Файловая структура проекта](FileStructure)
+[Файловая структура проекта](FileStructure.md)
 
-[Инструменты локализации](EditorLocalization)
+[Инструменты локализации](EditorLocalization.md)
 
-[Инструменты шифрования](EditorCrypto)
+[Инструменты шифрования](EditorCrypto.md)
 
 ---
 
