@@ -1,175 +1,79 @@
 <!DOCTYPE html>
-<html lang="en" data-bs-theme="dark">
-    <head>
-        <meta charset="utf-8">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<html lang="en">
+<head>
+  
+  
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    
+    <link rel="canonical" href="https://USERNAME.github.io/project-docs/FileStructure/">
+    <link rel="shortcut icon" href="../img/favicon.ico">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" />
+    <title>Структура JSON-файлов проекта - Card Kiosk Core documentation</title>
+    <link href="../css/bootstrap-3.3.7.min.css" rel="stylesheet">
+    <link href="../css/font-awesome-4.7.0.css" rel="stylesheet">
+    <link href="../css/base.css" rel="stylesheet">
+    <link rel="stylesheet" href="../css/highlight.css">
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
+    <![endif]-->
+
+    <script src="../js/jquery-3.2.1.min.js"></script>
+    <script src="../js/bootstrap-3.3.7.min.js"></script>
+    <script src="../js/highlight.pack.js"></script>
+    
+    <base target="_top">
+    <script>
+      var base_url = '..';
+      var is_top_frame = false;
         
-        
-        <link rel="canonical" href="https://USERNAME.github.io/project-docs/FileStructure/">
-        <link rel="shortcut icon" href="../img/favicon.ico">
-        <title>Структура JSON-файлов проекта - Card Kiosk Core documentation</title>
-        <link href="../css/bootstrap.min.css" rel="stylesheet">
-        <link href="../css/fontawesome.min.css" rel="stylesheet">
-        <link href="../css/brands.min.css" rel="stylesheet">
-        <link href="../css/solid.min.css" rel="stylesheet">
-        <link href="../css/v4-font-face.min.css" rel="stylesheet">
-        <link href="../css/base.css" rel="stylesheet">
-        <link id="hljs-light" rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css" disabled>
-        <link id="hljs-dark" rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github-dark.min.css" >
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/languages/yaml.min.js"></script>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/languages/csharp.min.js"></script>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/languages/json.min.js"></script>
-        <script>hljs.highlightAll();</script> 
-    </head>
+        var pageToc = [
+          {title: "\u0421\u0442\u0440\u0443\u043a\u0442\u0443\u0440\u0430 JSON-\u0444\u0430\u0439\u043b\u043e\u0432 \u043f\u0440\u043e\u0435\u043a\u0442\u0430", url: "#_top", children: [
+              {title: "1. appsettings.json \u2014 \u043e\u0441\u043d\u043e\u0432\u043d\u0430\u044f \u043a\u043e\u043d\u0444\u0438\u0433\u0443\u0440\u0430\u0446\u0438\u044f \u043f\u0440\u0438\u043b\u043e\u0436\u0435\u043d\u0438\u044f", url: "#1-appsettingsjson" },
+              {title: "2. \u0424\u0430\u0439\u043b\u043e\u0432\u0430\u044f \u0441\u0442\u0440\u0443\u043a\u0442\u0443\u0440\u0430 \u043f\u0430\u043f\u043a\u0438 \u043f\u0440\u043e\u0435\u043a\u0442\u0430 (ResourcesFolder)", url: "#2-resourcesfolder" },
+              {title: "3. \u041e\u043f\u0438\u0441\u0430\u043d\u0438\u0435 \u043a\u0430\u0436\u0434\u043e\u0433\u043e JSON-\u0444\u0430\u0439\u043b\u0430", url: "#3-json-" },
+              {title: "4. environments.json \u2014 \u043f\u0435\u0440\u0435\u043e\u043f\u0440\u0435\u0434\u0435\u043b\u0435\u043d\u0438\u0435 \u0437\u043d\u0430\u0447\u0435\u043d\u0438\u0439 \u043f\u043e \u0441\u0440\u0435\u0434\u0435", url: "#4-environmentsjson" },
+              {title: "5. Translations.xlsx \u2014 \u043f\u0435\u0440\u0435\u0432\u043e\u0434\u044b", url: "#5-translationsxlsx" },
+              {title: "6. \u041f\u043e\u0440\u044f\u0434\u043e\u043a \u0437\u0430\u0433\u0440\u0443\u0437\u043a\u0438 \u043f\u0440\u0438 \u0441\u0442\u0430\u0440\u0442\u0435", url: "#6" },
+          ]},
+        ];
 
-    <body>
-        <div class="navbar fixed-top navbar-expand-lg navbar-dark bg-primary">
-            <div class="container">
-                <a class="navbar-brand" href="..">Card Kiosk Core documentation</a>
+    </script>
+    <script src="../js/base.js"></script> 
+</head>
 
-                <!-- Expanded navigation -->
-                <div id="navbar-collapse" class="navbar-collapse collapse">
+<body>
+<script>
+if (is_top_frame) { $('body').addClass('wm-top-page'); }
+</script>
 
-                    <ul class="nav navbar-nav ms-md-auto">
-                        <li class="nav-item">
-                            <a href="#" class="nav-link" data-bs-toggle="modal" data-bs-target="#mkdocs_search_modal">
-                                <i class="fa fa-search"></i> Search
-                            </a>
-                        </li>
-                            <li class="nav-item dropdown">
-                              <button id="theme-menu" aria-expanded="false" data-bs-toggle="dropdown" data-bs-display="static" aria-label="Toggle theme" class="nav-link dropdown-toggle">
-                                <i class="fa-solid fa-circle-half-stroke fa-fw"></i>
-                                <span class="d-lg-none ms-2">Toggle theme</span>
-                              </button>
-                              <ul class="dropdown-menu dropdown-menu-end">
-                                <li>
-                                  <button class="dropdown-item d-flex align-items-center" data-bs-theme-value="light" aria-pressed="false">
-                                    <i class="fa-solid fa-sun fa-fw"></i>
-                                    <span class="ms-2">Light</span>
-                                    <i class="fa-solid fa-check ms-auto d-none"></i>
-                                  </button>
-                                </li>
-                                <li>
-                                  <button class="dropdown-item d-flex align-items-center" data-bs-theme-value="dark" aria-pressed="true">
-                                    <i class="fa-solid fa-moon fa-fw"></i>
-                                    <span class="ms-2">Dark</span>
-                                    <i class="fa-solid fa-check ms-auto"></i>
-                                  </button>
-                                </li>
-                                <li>
-                                  <button class="dropdown-item d-flex align-items-center" data-bs-theme-value="auto" aria-pressed="false">
-                                    <i class="fa-solid fa-circle-half-stroke fa-fw"></i>
-                                    <span class="ms-2">Auto</span>
-                                    <i class="fa-solid fa-check ms-auto d-none"></i>
-                                  </button>
-                                </li>
-                              </ul>
-                            </li>
-                    </ul>
-                </div>
-            </div>
-        </div>
-        <script src="../js/darkmode.js"></script>
 
-        <div class="container">
-            <div class="row">
-                    <div class="col-md-3"><div class="navbar-expand-md bs-sidebar hidden-print affix" role="complementary">
-    <div class="navbar-header">
-        <button type="button" class="navbar-toggler collapsed" data-bs-toggle="collapse" data-bs-target="#toc-collapse" title="Table of Contents">
-            <span class="fa fa-angle-down"></span>
-        </button>
-    </div>
+
+<div class="container-fluid wm-page-content">
+  <a name="_top"></a>
+    
 
     
-    <div id="toc-collapse" class="navbar-collapse collapse card bg-body-tertiary">
-        <ul class="nav flex-column">
-            
-            <li class="nav-item" data-bs-level="1"><a href="#json-" class="nav-link">Структура JSON-файлов проекта</a>
-              <ul class="nav flex-column">
-            <li class="nav-item" data-bs-level="2"><a href="#1-appsettingsjson" class="nav-link">1. appsettings.json — основная конфигурация приложения</a>
-              <ul class="nav flex-column">
-              </ul>
-            </li>
-            <li class="nav-item" data-bs-level="2"><a href="#2-resourcesfolder" class="nav-link">2. Файловая структура папки проекта (ResourcesFolder)</a>
-              <ul class="nav flex-column">
-              </ul>
-            </li>
-            <li class="nav-item" data-bs-level="2"><a href="#3-json-" class="nav-link">3. Описание каждого JSON-файла</a>
-              <ul class="nav flex-column">
-            <li class="nav-item" data-bs-level="3"><a href="#_rootjson" class="nav-link">_root.json</a>
-              <ul class="nav flex-column">
-              </ul>
-            </li>
-            <li class="nav-item" data-bs-level="3"><a href="#windowsjson" class="nav-link">windows.json</a>
-              <ul class="nav flex-column">
-              </ul>
-            </li>
-            <li class="nav-item" data-bs-level="3"><a href="#stylesjson" class="nav-link">styles.json</a>
-              <ul class="nav flex-column">
-              </ul>
-            </li>
-            <li class="nav-item" data-bs-level="3"><a href="#apisjson" class="nav-link">apis.json</a>
-              <ul class="nav flex-column">
-              </ul>
-            </li>
-            <li class="nav-item" data-bs-level="3"><a href="#auxilaryjson" class="nav-link">auxilary.json</a>
-              <ul class="nav flex-column">
-              </ul>
-            </li>
-            <li class="nav-item" data-bs-level="3"><a href="#timersjson" class="nav-link">timers.json</a>
-              <ul class="nav flex-column">
-              </ul>
-            </li>
-              </ul>
-            </li>
-            <li class="nav-item" data-bs-level="2"><a href="#4-environmentsjson" class="nav-link">4. environments.json — переопределение значений по среде</a>
-              <ul class="nav flex-column">
-              </ul>
-            </li>
-            <li class="nav-item" data-bs-level="2"><a href="#5-translationsxlsx" class="nav-link">5. Translations.xlsx — переводы</a>
-              <ul class="nav flex-column">
-            <li class="nav-item" data-bs-level="3"><a href="#_1" class="nav-link">Приоритет поиска файла</a>
-              <ul class="nav flex-column">
-              </ul>
-            </li>
-            <li class="nav-item" data-bs-level="3"><a href="#_2" class="nav-link">Формат файла</a>
-              <ul class="nav flex-column">
-              </ul>
-            </li>
-              </ul>
-            </li>
-            <li class="nav-item" data-bs-level="2"><a href="#6" class="nav-link">6. Порядок загрузки при старте</a>
-              <ul class="nav flex-column">
-            <li class="nav-item" data-bs-level="3"><a href="#_3" class="nav-link">Приоритет источников дизайна</a>
-              <ul class="nav flex-column">
-              </ul>
-            </li>
-              </ul>
-            </li>
-              </ul>
-            </li>
-        </ul>
-    </div>
-</div></div>
-                    <div class="col-md-9" role="main">
 
-<h1 id="json-">Структура JSON-файлов проекта<a class="headerlink" href="#json-" title="Permanent link">&para;</a></h1>
+    <h1 id="json-">Структура JSON-файлов проекта<a class="headerlink" href="#json-" title="Permanent link">&para;</a></h1>
 <hr />
 <h2 id="1-appsettingsjson">1. <code>appsettings.json</code> — основная конфигурация приложения<a class="headerlink" href="#1-appsettingsjson" title="Permanent link">&para;</a></h2>
 <p>Загружается <strong>первым</strong>, из директории, в которой находится <strong>KardKioskCore.exe</strong></p>
 <p>Пример appsettings.json:</p>
-<div class="codehilite"><pre><span></span><code><span class="p">{</span>
-<span class="w">  </span><span class="nt">&quot;DesignFile&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;TestUI.json&quot;</span><span class="p">,</span>
-<span class="w">  </span><span class="nt">&quot;ResourcesFolder&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Resources&quot;</span><span class="p">,</span>
-<span class="w">  </span><span class="nt">&quot;DefaultEnvironments&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">&quot;test&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;ipSet1&quot;</span><span class="p">],</span>
-<span class="w">  </span><span class="nt">&quot;WindowMode&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span>
-<span class="w">  </span><span class="nt">&quot;DefaultWidth&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">1080</span><span class="p">,</span>
-<span class="w">  </span><span class="nt">&quot;DefaultHeight&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">1920</span><span class="p">,</span>
-<span class="w">  </span><span class="nt">&quot;DisableEdgeProtection&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span>
-<span class="p">}</span>
-</code></pre></div>
+<pre class="codehilite"><code class="language-json">{
+  &quot;DesignFile&quot;: &quot;TestUI.json&quot;,
+  &quot;ResourcesFolder&quot;: &quot;Resources&quot;,
+  &quot;DefaultEnvironments&quot;: [&quot;test&quot;, &quot;ipSet1&quot;],
+  &quot;WindowMode&quot;: false,
+  &quot;DefaultWidth&quot;: 1080,
+  &quot;DefaultHeight&quot;: 1920,
+  &quot;DisableEdgeProtection&quot;: false
+}
+</code></pre>
 
 <table>
 <thead>
@@ -224,7 +128,7 @@
 </blockquote>
 <hr />
 <h2 id="2-resourcesfolder">2. Файловая структура папки проекта (<code>ResourcesFolder</code>)<a class="headerlink" href="#2-resourcesfolder" title="Permanent link">&para;</a></h2>
-<div class="codehilite"><pre><span></span><code>ProjectName/
+<pre class="codehilite"><code>ProjectName/
 ├── Json/
 │   ├── _root.json          ← метаданные проекта
 │   ├── windows.json        ← экраны и элементы UI
@@ -237,7 +141,7 @@
 ├── Videos/
 ├── Fonts/
 └── .pepk                   ← маркер зашифрованного проекта
-</code></pre></div>
+</code></pre>
 
 <p>Каждый файл отвечает за свою секцию итогового дизайна картомата:</p>
 <table>
@@ -285,13 +189,13 @@
 <h2 id="3-json-">3. Описание каждого JSON-файла<a class="headerlink" href="#3-json-" title="Permanent link">&para;</a></h2>
 <h3 id="_rootjson"><code>_root.json</code><a class="headerlink" href="#_rootjson" title="Permanent link">&para;</a></h3>
 <p>Метаданные проекта. Определяет начальное состояние приложения.</p>
-<div class="codehilite"><pre><span></span><code><span class="p">{</span>
-<span class="w">  </span><span class="nt">&quot;name&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;PROJECT_NAME&quot;</span><span class="p">,</span>
-<span class="w">  </span><span class="nt">&quot;root&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;win_Welcome&quot;</span><span class="p">,</span>
-<span class="w">  </span><span class="nt">&quot;defaultLanguage&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;ru&quot;</span><span class="p">,</span>
-<span class="w">  </span><span class="nt">&quot;defaultKeyboard&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;numeric&quot;</span>
-<span class="p">}</span>
-</code></pre></div>
+<pre class="codehilite"><code class="language-json">{
+  &quot;name&quot;: &quot;PROJECT_NAME&quot;,
+  &quot;root&quot;: &quot;win_Welcome&quot;,
+  &quot;defaultLanguage&quot;: &quot;ru&quot;,
+  &quot;defaultKeyboard&quot;: &quot;numeric&quot;
+}
+</code></pre>
 
 <table>
 <thead>
@@ -322,42 +226,42 @@
 <hr />
 <h3 id="windowsjson"><code>windows.json</code><a class="headerlink" href="#windowsjson" title="Permanent link">&para;</a></h3>
 <p>Список экранов и UI-элементов, содержащихся в них. Основной файл визуальной части.</p>
-<div class="codehilite"><pre><span></span><code><span class="p">{</span>
-<span class="w">  </span><span class="nt">&quot;windows&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w"> </span><span class="err">объекты</span><span class="w"> </span><span class="err">окон</span><span class="w"> </span><span class="p">]</span>
-<span class="p">}</span>
-</code></pre></div>
+<pre class="codehilite"><code class="language-json">{
+  &quot;windows&quot;: [ объекты окон ]
+}
+</code></pre>
 
 <hr />
 <h3 id="stylesjson"><code>styles.json</code><a class="headerlink" href="#stylesjson" title="Permanent link">&para;</a></h3>
 <p>Именованные наборы параметров отображения. Применяются к элементам через поле <code>styles</code>. Подробнее описано в разделе <a href="../Styles/">Styles</a>.</p>
-<div class="codehilite"><pre><span></span><code><span class="p">{</span>
-<span class="w">  </span><span class="nt">&quot;styles&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w"> </span><span class="err">объекты</span><span class="w"> </span><span class="err">стилей</span><span class="w"> </span><span class="p">]</span>
-<span class="p">}</span>
-</code></pre></div>
+<pre class="codehilite"><code class="language-json">{
+  &quot;styles&quot;: [ объекты стилей ]
+}
+</code></pre>
 
 <hr />
 <h3 id="apisjson"><code>apis.json</code><a class="headerlink" href="#apisjson" title="Permanent link">&para;</a></h3>
 <p>Описание REST API-клиентов и их запросов. Подробнее в разделе <a href="../Apis/">APIs</a></p>
-<div class="codehilite"><pre><span></span><code><span class="p">{</span>
-<span class="w">  </span><span class="nt">&quot;apis&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w"> </span><span class="err">объекты</span><span class="w"> </span><span class="err">api</span><span class="w"> </span><span class="p">]</span>
-<span class="p">}</span>
-</code></pre></div>
+<pre class="codehilite"><code class="language-json">{
+  &quot;apis&quot;: [ объекты api ]
+}
+</code></pre>
 
 <hr />
 <h3 id="auxilaryjson"><code>auxilary.json</code><a class="headerlink" href="#auxilaryjson" title="Permanent link">&para;</a></h3>
 <p>Подключаемые внешние устройства (QR-сканеры, лотки и т.д.). Подробнее в разделе <a href="../Auxilary/">Auxislary</a></p>
-<div class="codehilite"><pre><span></span><code><span class="p">{</span>
-<span class="w">  </span><span class="nt">&quot;auxilary&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w"> </span><span class="err">объекты</span><span class="w"> </span><span class="err">устройств</span><span class="w"> </span><span class="p">]</span>
-<span class="p">}</span>
-</code></pre></div>
+<pre class="codehilite"><code class="language-json">{
+  &quot;auxilary&quot;: [ объекты устройств ]
+}
+</code></pre>
 
 <hr />
 <h3 id="timersjson"><code>timers.json</code><a class="headerlink" href="#timersjson" title="Permanent link">&para;</a></h3>
 <p>Таймеры для отложенного или периодического выполнения команд.</p>
-<div class="codehilite"><pre><span></span><code><span class="p">{</span>
-<span class="w">  </span><span class="nt">&quot;timers&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w"> </span><span class="err">объекты</span><span class="w"> </span><span class="err">таймеров</span><span class="w"> </span><span class="p">]</span>
-<span class="p">}</span>
-</code></pre></div>
+<pre class="codehilite"><code class="language-json">{
+  &quot;timers&quot;: [ объекты таймеров ]
+}
+</code></pre>
 
 <blockquote>
 <p>Если файл отсутствует — используется пустой список таймеров, ошибки не возникает.</p>
@@ -366,28 +270,28 @@
 <h2 id="4-environmentsjson">4. <code>environments.json</code> — переопределение значений по среде<a class="headerlink" href="#4-environmentsjson" title="Permanent link">&para;</a></h2>
 <p>Находится в директории с ресурсами проекта (рядом с <code>Images/</code>, <code>Json/</code>). Подробнее в разделе <a href="../Environments/">Environments</a></p>
 <p>Пример файла environments.json:</p>
-<div class="codehilite"><pre><span></span><code><span class="p">{</span>
-<span class="w">  </span><span class="nt">&quot;params&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
-<span class="w">    </span><span class="nt">&quot;myKey&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;myValue&quot;</span>
-<span class="w">  </span><span class="p">},</span>
-<span class="w">  </span><span class="nt">&quot;environments&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
-<span class="w">    </span><span class="p">{</span>
-<span class="w">      </span><span class="nt">&quot;name&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;test&quot;</span><span class="p">,</span>
-<span class="w">      </span><span class="nt">&quot;objects&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
-<span class="w">        </span><span class="nt">&quot;apis[0].BaseUrl&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;http://000.000.0.000:00000&quot;</span><span class="p">,</span>
-<span class="w">        </span><span class="nt">&quot;windows.[4].elements.[2].visible&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span>
-<span class="w">      </span><span class="p">}</span>
-<span class="w">    </span><span class="p">},</span>
-<span class="w">    </span><span class="p">{</span>
-<span class="w">      </span><span class="nt">&quot;name&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;prod&quot;</span><span class="p">,</span>
-<span class="w">      </span><span class="nt">&quot;objects&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
-<span class="w">        </span><span class="nt">&quot;apis[0].BaseUrl&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;http://111.11.1.111:11111&quot;</span><span class="p">,</span>
-<span class="w">        </span><span class="nt">&quot;windows.[4].elements.[2].visible&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span>
-<span class="w">      </span><span class="p">}</span>
-<span class="w">    </span><span class="p">}</span>
-<span class="w">  </span><span class="p">]</span>
-<span class="p">}</span>
-</code></pre></div>
+<pre class="codehilite"><code class="language-json">{
+  &quot;params&quot;: {
+    &quot;myKey&quot;: &quot;myValue&quot;
+  },
+  &quot;environments&quot;: [
+    {
+      &quot;name&quot;: &quot;test&quot;,
+      &quot;objects&quot;: {
+        &quot;apis[0].BaseUrl&quot;: &quot;http://000.000.0.000:00000&quot;,
+        &quot;windows.[4].elements.[2].visible&quot;: true
+      }
+    },
+    {
+      &quot;name&quot;: &quot;prod&quot;,
+      &quot;objects&quot;: {
+        &quot;apis[0].BaseUrl&quot;: &quot;http://111.11.1.111:11111&quot;,
+        &quot;windows.[4].elements.[2].visible&quot;: false
+      }
+    }
+  ]
+}
+</code></pre>
 
 <ul>
 <li>Секция <code>params</code> → значения автоматически помещаются в <code>PersistentData</code> с префиксом <code>params.*</code></li>
@@ -401,13 +305,13 @@
 <h2 id="5-translationsxlsx">5. <code>Translations.xlsx</code> — переводы<a class="headerlink" href="#5-translationsxlsx" title="Permanent link">&para;</a></h2>
 <p>Подробнее о работе переводов в разделе <a href="../LocalizationBase/">Localization</a></p>
 <h3 id="_1">Приоритет поиска файла<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h3>
-<div class="codehilite"><pre><span></span><code><span class="mf">1.</span><span class="w"> </span><span class="n">C</span><span class="p">:</span><span class="err">\</span><span class="n">ProgramData</span><span class="err">\</span><span class="n">KioskCommon</span><span class="err">\</span><span class="n">Translations</span><span class="mf">.</span><span class="n">xlsx</span><span class="w">   </span><span class="err">←</span><span class="w"> </span><span class="n">системный</span><span class="w"> </span><span class="p">(</span><span class="kd">def</span><span class="n">aultPath</span><span class="p">)</span>
-<span class="w">        </span><span class="err">↓</span><span class="w"> </span><span class="n">если</span><span class="w"> </span><span class="n">не</span><span class="w"> </span><span class="n">найден</span>
-<span class="mf">2.</span><span class="w"> </span><span class="err">{</span><span class="n">ResourcesFolder</span><span class="err">}\</span><span class="n">Translations</span><span class="mf">.</span><span class="n">xlsx</span><span class="w">            </span><span class="err">←</span><span class="w"> </span><span class="n">рядом</span><span class="w"> </span><span class="n">с</span><span class="w"> </span><span class="n">CardKioskCore</span><span class="mf">.</span><span class="n">exe</span>
-<span class="w">        </span><span class="err">↓</span><span class="w"> </span><span class="n">если</span><span class="w"> </span><span class="n">не</span><span class="w"> </span><span class="n">найден</span>
-<span class="mf">3.</span><span class="w"> </span><span class="n">Возвращается</span><span class="w"> </span><span class="n">пустой</span><span class="w"> </span><span class="n">словарь</span>
-<span class="w">   </span><span class="o">+</span><span class="w"> </span><span class="n">создаётся</span><span class="w"> </span><span class="n">error</span><span class="w"> </span><span class="n">flag</span><span class="w"> </span><span class="s">&quot;Translations.xlsx not found!&quot;</span>
-</code></pre></div>
+<pre class="codehilite"><code>1. C:\ProgramData\KioskCommon\Translations.xlsx   ← системный (defaultPath)
+        ↓ если не найден
+2. {ResourcesFolder}\Translations.xlsx            ← рядом с CardKioskCore.exe
+        ↓ если не найден
+3. Возвращается пустой словарь
+   + создаётся error flag &quot;Translations.xlsx not found!&quot;
+</code></pre>
 
 <h3 id="_2">Формат файла<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h3>
 <table>
@@ -446,7 +350,7 @@
 </ul>
 <hr />
 <h2 id="6">6. Порядок загрузки при старте<a class="headerlink" href="#6" title="Permanent link">&para;</a></h2>
-<div class="codehilite"><pre><span></span><code>[1] appsettings.json
+<pre class="codehilite"><code>[1] appsettings.json
     └── Не найден? → Ошибка запуска
 
 [2] ResourcesFolder (папка)
@@ -469,7 +373,7 @@
 
 [7] KioskSetting.json (системная папка)
     └── Не найден? → сообщение с предупреждением, без завершения работы
-</code></pre></div>
+</code></pre>
 
 <h3 id="_3">Приоритет источников дизайна<a class="headerlink" href="#_3" title="Permanent link">&para;</a></h3>
 <table>
@@ -497,82 +401,17 @@
 <td>Патчит финальный объект дизайна</td>
 </tr>
 </tbody>
-</table></div>
-            </div>
-        </div>
+</table>
 
-        <footer class="col-md-12">
-            <hr>
-            <p>Documentation built with <a href="https://www.mkdocs.org/">MkDocs</a>.</p>
-        </footer>
-        <script src="../js/bootstrap.bundle.min.js"></script>
-        <script>
-            var base_url = "..",
-                shortcuts = {"help": 191, "next": 78, "previous": 80, "search": 83};
-        </script>
-        <script src="../js/base.js"></script>
-        <script src="../search/main.js"></script>
+  <br>
+    
 
-        <div class="modal" id="mkdocs_search_modal" tabindex="-1" role="dialog" aria-labelledby="searchModalLabel" aria-hidden="true">
-    <div class="modal-dialog modal-lg">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h4 class="modal-title" id="searchModalLabel">Search</h4>
-                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-            </div>
-            <div class="modal-body">
-                <p>From here you can search these documents. Enter your search terms below.</p>
-                <form>
-                    <div class="form-group">
-                        <input type="search" class="form-control" placeholder="Search..." id="mkdocs-search-query" title="Type search term here">
-                    </div>
-                </form>
-                <div id="mkdocs-search-results" data-no-results-text="No results found"></div>
-            </div>
-            <div class="modal-footer">
-            </div>
-        </div>
-    </div>
-</div><div class="modal" id="mkdocs_keyboard_modal" tabindex="-1" role="dialog" aria-labelledby="keyboardModalLabel" aria-hidden="true">
-    <div class="modal-dialog">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h4 class="modal-title" id="keyboardModalLabel">Keyboard Shortcuts</h4>
-                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-            </div>
-            <div class="modal-body">
-              <table class="table">
-                <thead>
-                  <tr>
-                    <th style="width: 20%;">Keys</th>
-                    <th>Action</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  <tr>
-                    <td class="help shortcut"><kbd>?</kbd></td>
-                    <td>Open this help</td>
-                  </tr>
-                  <tr>
-                    <td class="next shortcut"><kbd>n</kbd></td>
-                    <td>Next page</td>
-                  </tr>
-                  <tr>
-                    <td class="prev shortcut"><kbd>p</kbd></td>
-                    <td>Previous page</td>
-                  </tr>
-                  <tr>
-                    <td class="search shortcut"><kbd>s</kbd></td>
-                    <td>Search</td>
-                  </tr>
-                </tbody>
-              </table>
-            </div>
-            <div class="modal-footer">
-            </div>
-        </div>
-    </div>
+    <br>
 </div>
 
-    </body>
+<footer class="container-fluid wm-page-content">
+  <p>Documentation built with <a href="https://www.mkdocs.org/">MkDocs</a> using <a href="https://github.com/gristlabs/mkdocs-windmill">Windmill</a> theme by Grist Labs.</p>
+</footer>
+
+</body>
 </html>

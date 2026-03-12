@@ -1,138 +1,72 @@
 <!DOCTYPE html>
-<html lang="en" data-bs-theme="dark">
-    <head>
-        <meta charset="utf-8">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<html lang="en">
+<head>
+  
+  
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    
+    <link rel="canonical" href="https://USERNAME.github.io/project-docs/SessionData/">
+    <link rel="shortcut icon" href="../img/favicon.ico">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" />
+    <title>SessionData - Card Kiosk Core documentation</title>
+    <link href="../css/bootstrap-3.3.7.min.css" rel="stylesheet">
+    <link href="../css/font-awesome-4.7.0.css" rel="stylesheet">
+    <link href="../css/base.css" rel="stylesheet">
+    <link rel="stylesheet" href="../css/highlight.css">
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
+    <![endif]-->
+
+    <script src="../js/jquery-3.2.1.min.js"></script>
+    <script src="../js/bootstrap-3.3.7.min.js"></script>
+    <script src="../js/highlight.pack.js"></script>
+    
+    <base target="_top">
+    <script>
+      var base_url = '..';
+      var is_top_frame = false;
         
-        
-        <link rel="canonical" href="https://USERNAME.github.io/project-docs/SessionData/">
-        <link rel="shortcut icon" href="../img/favicon.ico">
-        <title>SessionData - Card Kiosk Core documentation</title>
-        <link href="../css/bootstrap.min.css" rel="stylesheet">
-        <link href="../css/fontawesome.min.css" rel="stylesheet">
-        <link href="../css/brands.min.css" rel="stylesheet">
-        <link href="../css/solid.min.css" rel="stylesheet">
-        <link href="../css/v4-font-face.min.css" rel="stylesheet">
-        <link href="../css/base.css" rel="stylesheet">
-        <link id="hljs-light" rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css" disabled>
-        <link id="hljs-dark" rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github-dark.min.css" >
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/languages/yaml.min.js"></script>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/languages/csharp.min.js"></script>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/languages/json.min.js"></script>
-        <script>hljs.highlightAll();</script> 
-    </head>
+        var pageToc = [
+          {title: "\u0427\u0442\u0435\u043d\u0438\u0435 \u0437\u043d\u0430\u0447\u0435\u043d\u0438\u044f", url: "#_top", children: [
+              {title: "\u041c\u043e\u0434\u0438\u0444\u0438\u043a\u0430\u0442\u043e\u0440\u044b", url: "#_2" },
+              {title: "\u0412\u043b\u043e\u0436\u0435\u043d\u043d\u044b\u0435 \u043f\u0443\u0442\u0438 (dot-path)", url: "#dot-path" },
+          ]},
+          {title: "\u041a\u043e\u043c\u0430\u043d\u0434\u044b", url: "#_3", children: [
+              {title: "add: \u2014 \u0417\u0430\u043f\u0438\u0441\u0430\u0442\u044c (\u0432\u0441\u0435\u0433\u0434\u0430)", url: "#add" },
+              {title: "fill: \u2014 \u0417\u0430\u043f\u0438\u0441\u0430\u0442\u044c (\u0442\u043e\u043b\u044c\u043a\u043e \u0435\u0441\u043b\u0438 \u043f\u0443\u0441\u0442\u043e)", url: "#fill" },
+              {title: "remove: \u2014 \u0423\u0434\u0430\u043b\u0438\u0442\u044c \u043f\u0435\u0440\u0435\u043c\u0435\u043d\u043d\u0443\u044e", url: "#remove" },
+              {title: "pushSession: \u2014 \u0421\u043a\u043e\u043f\u0438\u0440\u043e\u0432\u0430\u0442\u044c \u0437\u043d\u0430\u0447\u0435\u043d\u0438\u0435 \u0438\u0437 \u0434\u0440\u0443\u0433\u043e\u0439 \u043f\u0435\u0440\u0435\u043c\u0435\u043d\u043d\u043e\u0439", url: "#pushsession" },
+          ]},
+          {title: "\u0421\u0432\u043e\u0434\u043d\u0430\u044f \u0442\u0430\u0431\u043b\u0438\u0446\u0430 \u043a\u043e\u043c\u0430\u043d\u0434", url: "#_4", children: [
+          ]},
+        ];
 
-    <body>
-        <div class="navbar fixed-top navbar-expand-lg navbar-dark bg-primary">
-            <div class="container">
-                <a class="navbar-brand" href="..">Card Kiosk Core documentation</a>
+    </script>
+    <script src="../js/base.js"></script> 
+</head>
 
-                <!-- Expanded navigation -->
-                <div id="navbar-collapse" class="navbar-collapse collapse">
+<body>
+<script>
+if (is_top_frame) { $('body').addClass('wm-top-page'); }
+</script>
 
-                    <ul class="nav navbar-nav ms-md-auto">
-                        <li class="nav-item">
-                            <a href="#" class="nav-link" data-bs-toggle="modal" data-bs-target="#mkdocs_search_modal">
-                                <i class="fa fa-search"></i> Search
-                            </a>
-                        </li>
-                            <li class="nav-item dropdown">
-                              <button id="theme-menu" aria-expanded="false" data-bs-toggle="dropdown" data-bs-display="static" aria-label="Toggle theme" class="nav-link dropdown-toggle">
-                                <i class="fa-solid fa-circle-half-stroke fa-fw"></i>
-                                <span class="d-lg-none ms-2">Toggle theme</span>
-                              </button>
-                              <ul class="dropdown-menu dropdown-menu-end">
-                                <li>
-                                  <button class="dropdown-item d-flex align-items-center" data-bs-theme-value="light" aria-pressed="false">
-                                    <i class="fa-solid fa-sun fa-fw"></i>
-                                    <span class="ms-2">Light</span>
-                                    <i class="fa-solid fa-check ms-auto d-none"></i>
-                                  </button>
-                                </li>
-                                <li>
-                                  <button class="dropdown-item d-flex align-items-center" data-bs-theme-value="dark" aria-pressed="true">
-                                    <i class="fa-solid fa-moon fa-fw"></i>
-                                    <span class="ms-2">Dark</span>
-                                    <i class="fa-solid fa-check ms-auto"></i>
-                                  </button>
-                                </li>
-                                <li>
-                                  <button class="dropdown-item d-flex align-items-center" data-bs-theme-value="auto" aria-pressed="false">
-                                    <i class="fa-solid fa-circle-half-stroke fa-fw"></i>
-                                    <span class="ms-2">Auto</span>
-                                    <i class="fa-solid fa-check ms-auto d-none"></i>
-                                  </button>
-                                </li>
-                              </ul>
-                            </li>
-                    </ul>
-                </div>
-            </div>
-        </div>
-        <script src="../js/darkmode.js"></script>
 
-        <div class="container">
-            <div class="row">
-                    <div class="col-md-3"><div class="navbar-expand-md bs-sidebar hidden-print affix" role="complementary">
-    <div class="navbar-header">
-        <button type="button" class="navbar-toggler collapsed" data-bs-toggle="collapse" data-bs-target="#toc-collapse" title="Table of Contents">
-            <span class="fa fa-angle-down"></span>
-        </button>
-    </div>
+
+<div class="container-fluid wm-page-content">
+  <a name="_top"></a>
+    
 
     
-    <div id="toc-collapse" class="navbar-collapse collapse card bg-body-tertiary">
-        <ul class="nav flex-column">
-            
-            <li class="nav-item" data-bs-level="2"><a href="#_1" class="nav-link">Чтение значения</a>
-              <ul class="nav flex-column">
-            <li class="nav-item" data-bs-level="3"><a href="#_2" class="nav-link">Модификаторы</a>
-              <ul class="nav flex-column">
-              </ul>
-            </li>
-            <li class="nav-item" data-bs-level="3"><a href="#dot-path" class="nav-link">Вложенные пути (dot-path)</a>
-              <ul class="nav flex-column">
-              </ul>
-            </li>
-              </ul>
-            </li>
-            
-            <li class="nav-item" data-bs-level="2"><a href="#_3" class="nav-link">Команды</a>
-              <ul class="nav flex-column">
-            <li class="nav-item" data-bs-level="3"><a href="#add" class="nav-link">add: — Записать (всегда)</a>
-              <ul class="nav flex-column">
-              </ul>
-            </li>
-            <li class="nav-item" data-bs-level="3"><a href="#fill" class="nav-link">fill: — Записать (только если пусто)</a>
-              <ul class="nav flex-column">
-              </ul>
-            </li>
-            <li class="nav-item" data-bs-level="3"><a href="#remove" class="nav-link">remove: — Удалить переменную</a>
-              <ul class="nav flex-column">
-              </ul>
-            </li>
-            <li class="nav-item" data-bs-level="3"><a href="#pushsession" class="nav-link">pushSession: — Скопировать значение из другой переменной</a>
-              <ul class="nav flex-column">
-              </ul>
-            </li>
-              </ul>
-            </li>
-            
-            <li class="nav-item" data-bs-level="2"><a href="#_4" class="nav-link">Сводная таблица команд</a>
-              <ul class="nav flex-column">
-              </ul>
-            </li>
-        </ul>
-    </div>
-</div></div>
-                    <div class="col-md-9" role="main">
 
-<h2 id="_1">Чтение значения<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h2>
+    <h2 id="_1">Чтение значения<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h2>
 <p>Для подстановки значения переменной в параметры элементов и команд используется префикс <code>session:</code>:</p>
-<div class="codehilite"><pre><span></span><code><span class="s2">&quot;session:varName&quot;</span>
-</code></pre></div>
+<pre class="codehilite"><code class="language-json">&quot;session:varName&quot;
+</code></pre>
 
 <h3 id="_2">Модификаторы<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h3>
 <p>Добавляются через <code>|</code> после имени переменной:</p>
@@ -158,21 +92,21 @@
 </tbody>
 </table>
 <p>Модификаторы можно комбинировать:</p>
-<div class="codehilite"><pre><span></span><code><span class="s2">&quot;session:CardNumber|mask:****-????-????-????|fallback:Нет данных&quot;</span>
-</code></pre></div>
+<pre class="codehilite"><code class="language-json">&quot;session:CardNumber|mask:****-????-????-????|fallback:Нет данных&quot;
+</code></pre>
 
 <h3 id="dot-path">Вложенные пути (dot-path)<a class="headerlink" href="#dot-path" title="Permanent link">&para;</a></h3>
 <p>Если в переменную записан JSON-объект (например, результат API), к его полям можно обращаться через точку:</p>
-<div class="codehilite"><pre><span></span><code><span class="s2">&quot;session:clientData.name&quot;</span>
-<span class="s2">&quot;session:accountInfo.balance|fallback:0&quot;</span>
-</code></pre></div>
+<pre class="codehilite"><code class="language-json">&quot;session:clientData.name&quot;
+&quot;session:accountInfo.balance|fallback:0&quot;
+</code></pre>
 
 <hr />
 <h2 id="_3">Команды<a class="headerlink" href="#_3" title="Permanent link">&para;</a></h2>
 <h3 id="add"><code>add:</code> — Записать (всегда)<a class="headerlink" href="#add" title="Permanent link">&para;</a></h3>
-<div class="codehilite"><pre><span></span><code><span class="s2">&quot;add:varName&quot;</span>
-<span class="s2">&quot;add:varName#value&quot;</span>
-</code></pre></div>
+<pre class="codehilite"><code class="language-json">&quot;add:varName&quot;
+&quot;add:varName#value&quot;
+</code></pre>
 
 <ul>
 <li>Без <code>#value</code> — записывает значение <code>true</code></li>
@@ -181,20 +115,20 @@
 </ul>
 <hr />
 <h3 id="fill"><code>fill:</code> — Записать (только если пусто)<a class="headerlink" href="#fill" title="Permanent link">&para;</a></h3>
-<div class="codehilite"><pre><span></span><code><span class="s2">&quot;fill:varName&quot;</span>
-<span class="s2">&quot;fill:varName#value&quot;</span>
-</code></pre></div>
+<pre class="codehilite"><code class="language-json">&quot;fill:varName&quot;
+&quot;fill:varName#value&quot;
+</code></pre>
 
 <p>Аналог <code>add:</code>, но записывает значение <strong>только если переменная ещё не существует</strong> в SessionData.</p>
 <hr />
 <h3 id="remove"><code>remove:</code> — Удалить переменную<a class="headerlink" href="#remove" title="Permanent link">&para;</a></h3>
-<div class="codehilite"><pre><span></span><code><span class="s2">&quot;remove:varName&quot;</span>
-</code></pre></div>
+<pre class="codehilite"><code class="language-json">&quot;remove:varName&quot;
+</code></pre>
 
 <hr />
 <h3 id="pushsession"><code>pushSession:</code> — Скопировать значение из другой переменной<a class="headerlink" href="#pushsession" title="Permanent link">&para;</a></h3>
-<div class="codehilite"><pre><span></span><code><span class="s2">&quot;pushSession:sourceKey&gt;targetKey&quot;</span>
-</code></pre></div>
+<pre class="codehilite"><code class="language-json">&quot;pushSession:sourceKey&gt;targetKey&quot;
+</code></pre>
 
 <p>Копирует значение переменной <code>sourceKey</code> (ищет сначала в Session, затем в Persistent) в <code>session:targetKey</code>.</p>
 <hr />
@@ -240,82 +174,17 @@
 </tr>
 </tbody>
 </table>
-<hr /></div>
-            </div>
-        </div>
+<hr />
 
-        <footer class="col-md-12">
-            <hr>
-            <p>Documentation built with <a href="https://www.mkdocs.org/">MkDocs</a>.</p>
-        </footer>
-        <script src="../js/bootstrap.bundle.min.js"></script>
-        <script>
-            var base_url = "..",
-                shortcuts = {"help": 191, "next": 78, "previous": 80, "search": 83};
-        </script>
-        <script src="../js/base.js"></script>
-        <script src="../search/main.js"></script>
+  <br>
+    
 
-        <div class="modal" id="mkdocs_search_modal" tabindex="-1" role="dialog" aria-labelledby="searchModalLabel" aria-hidden="true">
-    <div class="modal-dialog modal-lg">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h4 class="modal-title" id="searchModalLabel">Search</h4>
-                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-            </div>
-            <div class="modal-body">
-                <p>From here you can search these documents. Enter your search terms below.</p>
-                <form>
-                    <div class="form-group">
-                        <input type="search" class="form-control" placeholder="Search..." id="mkdocs-search-query" title="Type search term here">
-                    </div>
-                </form>
-                <div id="mkdocs-search-results" data-no-results-text="No results found"></div>
-            </div>
-            <div class="modal-footer">
-            </div>
-        </div>
-    </div>
-</div><div class="modal" id="mkdocs_keyboard_modal" tabindex="-1" role="dialog" aria-labelledby="keyboardModalLabel" aria-hidden="true">
-    <div class="modal-dialog">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h4 class="modal-title" id="keyboardModalLabel">Keyboard Shortcuts</h4>
-                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-            </div>
-            <div class="modal-body">
-              <table class="table">
-                <thead>
-                  <tr>
-                    <th style="width: 20%;">Keys</th>
-                    <th>Action</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  <tr>
-                    <td class="help shortcut"><kbd>?</kbd></td>
-                    <td>Open this help</td>
-                  </tr>
-                  <tr>
-                    <td class="next shortcut"><kbd>n</kbd></td>
-                    <td>Next page</td>
-                  </tr>
-                  <tr>
-                    <td class="prev shortcut"><kbd>p</kbd></td>
-                    <td>Previous page</td>
-                  </tr>
-                  <tr>
-                    <td class="search shortcut"><kbd>s</kbd></td>
-                    <td>Search</td>
-                  </tr>
-                </tbody>
-              </table>
-            </div>
-            <div class="modal-footer">
-            </div>
-        </div>
-    </div>
+    <br>
 </div>
 
-    </body>
+<footer class="container-fluid wm-page-content">
+  <p>Documentation built with <a href="https://www.mkdocs.org/">MkDocs</a> using <a href="https://github.com/gristlabs/mkdocs-windmill">Windmill</a> theme by Grist Labs.</p>
+</footer>
+
+</body>
 </html>
