@@ -12,9 +12,9 @@
 3. Помещает результат соединения в varName1  
 
 Где можно использовать:  
-1. "add:varName1#varName2&&varName3"  
-2. "fill:varName1#varName2&&varName3"  
-3. "persistentFill:varName1#varName2&&varName3"  
+1. `"add:varName1#varName2&&varName3"`  
+2. `"fill:varName1#varName2&&varName3"`  
+3. `"persistentFill:varName1#varName2&&varName3"`  
 
 Соединять можно множество строк. Ограничения по количеству соединений нет.
 ```json
@@ -31,9 +31,9 @@
 3. Помещает выбранную ячейку массива (в данном случае ячейка 0 = "start_") в переменную varName1  
 
 Где можно использовать:  
-1. "add:varName1#varName2.Split(AA,0)"  
-2. "fill:varName1#varName2.Split(AA,0)"  
-3. "persistentFill:varName1#varName2.Split(AA,0)"  
+1. `"add:varName1#varName2.Split(AA,0)"`  
+2. `"fill:varName1#varName2.Split(AA,0)"`  
+3. `"persistentFill:varName1#varName2.Split(AA,0)"`  
 
 ## Порядок выполнения специальных функций
 Все перечисленные выше функции можно использовать совместно в рамках одной команды.
